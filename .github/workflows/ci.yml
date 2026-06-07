@@ -1,0 +1,32 @@
+name: KANON-Index CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt
+
+      - name: Verificar sintaxe de todos os scripts
+        run: |
+          python -m compileall -q .
+          echo "Todos os scripts passaram na verificacao de sintaxe."
+
+      - name: Testes do otimizador
+        run: |
+          python -m pytest test_kanon_optimizer_v4.py -q || python test_kanon_optimizer_v4.py

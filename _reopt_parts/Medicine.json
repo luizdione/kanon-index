@@ -1,0 +1,18 @@
+{
+  "wC": 0.0311,
+  "wA": 0.4804,
+  "wS": 0.4796,
+  "wJ": 0.0089,
+  "beta": 0.05,
+  "alpha": 0.3,
+  "auc_kanon_mean": 0.6286,
+  "auc_kanon_std": 0.0788,
+  "auc_hindex_mean": 0.5141,
+  "auc_hindex_std": 0.1499,
+  "delong_p_median": 0.5459,
+  "kanon_wins_folds": 4,
+  "total_folds": 5,
+  "kanon_superior": true,
+  "n_nobel": 42,
+  "n_elite": 125
+}

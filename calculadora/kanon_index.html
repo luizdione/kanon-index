@@ -1,0 +1,1433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-1039453546"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'AW-1039453546');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="KANON-Index: multidimensional bibliometric index integrating citations, authorship, methodological complexity, experimental cost and journal impact. Free calculator using OpenAlex data.">
+    <meta name="keywords" content="KANON-Index, bibliometrics, h-index, citations, OpenAlex, scientific index, researcher, scientific evaluation">
+    <meta name="author" content="Luiz Dione Barbosa de Melo">
+    <meta property="og:title" content="KANON-Index Calculator">
+    <meta property="og:description" content="KANON-Index calculator - multidimensional evaluation of individual scientific contribution">
+    <meta property="og:type" content="website">
+    <title>KANON-Index Calculator</title>
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="apple-touch-icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <style>
+    /* ── Slider Styles ─────────────────────────────────────────── */
+    .weight-slider-row {
+        display: grid;
+        grid-template-columns: 140px 1fr 55px;
+        gap: 10px;
+        align-items: center;
+        margin-bottom: 6px;
+    }
+    .weight-slider-row label {
+        color: #fff;
+        font-weight: 600;
+        font-size: 0.9rem;
+    }
+    .weight-slider-row .slider-val {
+        color: #fff;
+        font-weight: 700;
+        font-size: 0.9rem;
+        text-align: right;
+        font-family: 'Courier New', monospace;
+    }
+    input[type="range"].weight-slider {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 100%;
+        height: 10px;
+        border-radius: 5px;
+        background: rgba(255,255,255,0.25);
+        outline: none;
+        cursor: pointer;
+        transition: background 0.15s;
+    }
+    input[type="range"].weight-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background: #fff;
+        cursor: grab;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        border: 2px solid var(--accent-color);
+        transition: transform 0.15s;
+    }
+    input[type="range"].weight-slider::-webkit-slider-thumb:active {
+        cursor: grabbing;
+        transform: scale(1.15);
+    }
+    input[type="range"].weight-slider::-moz-range-thumb {
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background: #fff;
+        cursor: grab;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        border: 2px solid var(--accent-color);
+    }
+    input[type="range"].weight-slider:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+    input[type="range"].weight-slider:disabled::-webkit-slider-thumb {
+        cursor: not-allowed;
+    }
+    .weight-sum-row {
+        text-align: right;
+        color: #fff;
+        font-size: 0.9rem;
+        margin-top: 6px;
+        padding-top: 6px;
+        border-top: 1px solid rgba(255,255,255,0.2);
+    }
+
+    /* ── Hyperauthorship Section ──────────────────────────────── */
+    .position-weights-section {
+        margin-top: 12px;
+        padding-top: 10px;
+        border-top: 1px solid rgba(255,255,255,0.15);
+    }
+    .position-weights-section h4 {
+        color: #fff;
+        font-size: 0.9rem;
+        margin-bottom: 8px;
+    }
+    .pos-weight-row {
+        display: grid;
+        grid-template-columns: 180px 1fr 50px;
+        gap: 8px;
+        align-items: center;
+        margin-bottom: 4px;
+    }
+    .pos-weight-row label {
+        color: #fff;
+        font-size: 0.85rem;
+        opacity: 0.9;
+    }
+    .pos-weight-row .pos-val {
+        color: #fff;
+        font-weight: 600;
+        font-size: 0.85rem;
+        text-align: right;
+        font-family: 'Courier New', monospace;
+    }
+    input[type="range"].pos-slider {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 100%;
+        height: 6px;
+        border-radius: 3px;
+        background: rgba(255,255,255,0.2);
+        outline: none;
+        cursor: pointer;
+    }
+    input[type="range"].pos-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: #fff;
+        cursor: grab;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+        border: 2px solid var(--accent-color);
+    }
+    input[type="range"].pos-slider:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+    input[type="range"].pos-slider:disabled::-webkit-slider-thumb {
+        cursor: not-allowed;
+    }
+
+    /* ── Reset Default Button ────────────────────────────────── */
+    .reset-default-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        background: rgba(255,255,255,0.1);
+        border: 1px solid rgba(255,255,255,0.25);
+        color: rgba(255,255,255,0.85);
+        font-size: 0.78rem;
+        font-weight: 600;
+        padding: 4px 12px;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: all 0.2s;
+        margin-left: 12px;
+    }
+    .reset-default-btn:hover {
+        background: rgba(255,255,255,0.18);
+        border-color: rgba(255,255,255,0.4);
+        color: #fff;
+    }
+    .reset-default-btn i {
+        font-size: 0.72rem;
+    }
+
+    /* ── Language Toggle Button ───────────────────────────────── */
+    .lang-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        text-decoration: none;
+        font-weight: 700;
+        color: #fff;
+        padding: 6px 12px;
+        border-radius: 999px;
+        background: var(--primary-color);
+        box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        border: 1px solid rgba(0,0,0,0.15);
+        cursor: pointer;
+        transition: filter 0.2s;
+        font-size: 0.9rem;
+    }
+    .lang-btn:hover {
+        filter: brightness(1.08);
+    }
+
+    /* ── Header Brand & Subtitle ──────────────────────────────── */
+    .text-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 2px;
+    }
+    .header-brand {
+        font-size: 2.2rem;
+        font-weight: 800;
+        color: #6ee89a;
+        line-height: 1.1;
+        letter-spacing: 1px;
+        text-shadow: 0 0 12px rgba(110, 232, 154, 0.5);
+        width: 100%;
+    }
+    .header-subtitle {
+        font-size: 0.85rem;
+        font-weight: 400;
+        color: rgba(255,255,255,0.82);
+        line-height: 1.35;
+        max-width: 100%;
+        width: 100%;
+        display: block;
+    }
+    .header-description {
+        font-size: 0.75rem;
+        font-weight: 300;
+        color: rgba(255,255,255,0.65);
+        line-height: 1.4;
+        max-width: 100%;
+        width: 100%;
+        display: block;
+        margin-top: 4px;
+        font-style: italic;
+    }
+
+    /* ── Analysis Period Selector ─────────────────────────────── */
+    .period-section {
+        background: rgba(255,255,255,0.07);
+        border: 1px solid rgba(255,255,255,0.13);
+        border-radius: 10px;
+        padding: 12px 16px;
+        margin-bottom: 14px;
+    }
+    .period-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 0;
+    }
+    .period-check-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        color: #fff;
+        font-size: 0.88rem;
+        font-weight: 600;
+        user-select: none;
+    }
+    .period-check-label input[type="checkbox"] {
+        display: none;
+    }
+    .period-check-box {
+        width: 18px;
+        height: 18px;
+        border-radius: 4px;
+        border: 2px solid rgba(255,255,255,0.5);
+        background: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        transition: all 0.2s;
+    }
+    .period-check-label input:checked + .period-check-box {
+        background: #6ee89a;
+        border-color: #6ee89a;
+    }
+    .period-check-label input:checked + .period-check-box::after {
+        content: '✓';
+        color: #0d3020;
+        font-size: 0.75rem;
+        font-weight: 900;
+        line-height: 1;
+    }
+    .period-badge {
+        display: inline-block;
+        background: rgba(110,232,154,0.18);
+        color: #6ee89a;
+        border: 1px solid rgba(110,232,154,0.35);
+        border-radius: 20px;
+        padding: 2px 10px;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.3px;
+    }
+    .period-custom-row {
+        margin-top: 12px;
+        padding-top: 12px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        display: none;
+    }
+    .period-custom-row.visible { display: block; }
+    .period-range-wrap {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    .period-range-label {
+        color: rgba(255,255,255,0.75);
+        font-size: 0.82rem;
+        white-space: nowrap;
+    }
+    input[type="range"].period-slider {
+        -webkit-appearance: none;
+        appearance: none;
+        flex: 1;
+        height: 6px;
+        border-radius: 3px;
+        background: rgba(255,255,255,0.2);
+        outline: none;
+        cursor: pointer;
+    }
+    input[type="range"].period-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background: #6ee89a;
+        cursor: grab;
+        box-shadow: 0 0 8px rgba(110,232,154,0.5);
+        border: 2px solid #fff;
+        transition: transform 0.15s;
+    }
+    input[type="range"].period-slider::-webkit-slider-thumb:active {
+        cursor: grabbing;
+        transform: scale(1.2);
+    }
+    input[type="range"].period-slider::-moz-range-thumb {
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background: #6ee89a;
+        cursor: grab;
+        border: 2px solid #fff;
+        box-shadow: 0 0 8px rgba(110,232,154,0.5);
+    }
+    .period-value-display {
+        min-width: 64px;
+        text-align: center;
+        color: #6ee89a;
+        font-weight: 800;
+        font-size: 1rem;
+        font-family: 'Courier New', monospace;
+        background: rgba(110,232,154,0.1);
+        border: 1px solid rgba(110,232,154,0.3);
+        border-radius: 8px;
+        padding: 4px 8px;
+    }
+    .period-hint {
+        color: rgba(255,255,255,0.55);
+        font-size: 0.76rem;
+        margin-top: 8px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    @media (max-width: 700px) {
+        .weight-slider-row { grid-template-columns: 110px 1fr 50px; }
+        .pos-weight-row { grid-template-columns: 140px 1fr 45px; }
+        .header-subtitle { font-size: 0.65rem; max-width: 100%; }
+        .header-brand { font-size: 1.5rem; }
+        .header-description { font-size: 0.62rem; }
+    }
+    </style>
+</head>
+<body>
+
+<!-- ── Top Bar ─────────────────────────────────────────────────────── -->
+<div class="top-bar">
+    <a href="../">
+        <img src="img/logo_ifrj.png" alt="IFRJ" class="logo-ifrj"
+             onerror="this.style.display='none'">
+    </a>
+    <div class="text-container">
+        <span class="header-brand">KANON-Index Calculator</span>
+        <span class="header-subtitle" data-i18n="header_subtitle">A Computational Metric for Individual Scientific Contribution Based on Methodological Complexity, Citation Impact, and Authorship Structure</span>
+        <span class="header-description" data-i18n="header_description">A free, open-source composite bibliometric index that evaluates researchers by integrating citations, authorship position, methodological complexity, experimental cost, and journal impact with cross-validated field-specific weights.</span>
+    </div>
+    <div class="top-right-group">
+        <button class="lang-btn" id="langToggleBtn" onclick="toggleLanguage()">
+            <i class="fas fa-globe"></i> <span id="langBtnText">Versão Portuguesa</span>
+        </button>
+    </div>
+</div>
+
+<!-- ── Main Content ───────────────────────────────────────────────── -->
+<div class="main">
+    <div class="main-content">
+        <div class="panel">
+
+            <h1>KANON-Index Calculator</h1>
+            <p class="update-info">
+                KANON = w<sub>C</sub>&middot;C + w<sub>A</sub>&middot;A + w<sub>M</sub>&middot;M + w<sub>R</sub>&middot;R + w<sub>J</sub>&middot;J &nbsp;|&nbsp; Cross-validated field-specific weights (v3)
+            </p>
+
+            <!-- ═══ Step 1: Select Field ═══════════════════════════════ -->
+            <div class="step-section" id="step1">
+                <h3><span class="step-num">1</span> <span data-i18n="step1_title">Select Research Field</span></h3>
+                <div class="field-buttons">
+                    <button class="field-btn" data-field="chemistry" onclick="selectField('chemistry')">
+                        <i class="fas fa-flask"></i>
+                        <span data-i18n="field_chemistry">Chemistry</span>
+                    </button>
+                    <button class="field-btn" data-field="medicine" onclick="selectField('medicine')">
+                        <i class="fas fa-heart-pulse"></i>
+                        <span data-i18n="field_medicine">Medicine</span>
+                    </button>
+                    <button class="field-btn" data-field="physics" onclick="selectField('physics')">
+                        <i class="fas fa-atom"></i>
+                        <span data-i18n="field_physics">Physics</span>
+                    </button>
+                    <button class="field-btn" data-field="economics" onclick="selectField('economics')">
+                        <i class="fas fa-chart-line"></i>
+                        <span data-i18n="field_economics">Economics</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ═══ Step 2: Configure Weights ══════════════════════════ -->
+            <div class="step-section" id="step2" style="display:none;">
+                <h3><span class="step-num">2</span> <span data-i18n="step2_title">KANON Index Weights</span></h3>
+
+                <!-- ── Analysis Period ─────────────────────────────────── -->
+                <div class="period-section">
+                    <div class="period-header">
+                        <i class="fas fa-calendar-days" style="color:#6ee89a; font-size:1rem;"></i>
+                        <span style="color:#fff; font-weight:700; font-size:0.9rem;" data-i18n="period_title">Analysis Period</span>
+                    </div>
+                    <div style="margin-top:10px; display:flex; align-items:center; gap:14px; flex-wrap:wrap;">
+                        <label class="period-check-label" id="defaultPeriodLabel">
+                            <input type="checkbox" id="defaultPeriodCheck" checked onchange="togglePeriodMode()">
+                            <span class="period-check-box"></span>
+                            <span data-i18n="period_default">Default: last</span>
+                            <span class="period-badge">10 <span data-i18n="period_years">years</span></span>
+                        </label>
+                        <span style="color:rgba(255,255,255,0.4); font-size:0.8rem;" data-i18n="period_or">— or customize below —</span>
+                    </div>
+                    <div class="period-custom-row" id="periodCustomRow">
+                        <div class="period-range-wrap">
+                            <span class="period-range-label" data-i18n="period_range_label">Period:</span>
+                            <input type="range" class="period-slider" id="periodSlider"
+                                   min="1" max="30" value="10"
+                                   oninput="onPeriodSliderChange(this.value)">
+                            <span class="period-value-display" id="periodValueDisplay">10 <span data-i18n="period_yrs">yrs</span></span>
+                        </div>
+                        <div class="period-hint">
+                            <i class="fas fa-circle-info"></i>
+                            <span data-i18n="period_hint">Drag the slider to select the analysis window (1–30 years)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="weight-toggle">
+                    <label class="toggle-label">
+                        <input type="checkbox" id="customWeightsToggle" onchange="toggleCustomWeights()">
+                        <span class="toggle-slider"></span>
+                        <span class="toggle-text" data-i18n="customize_weights">Customize weights</span>
+                    </label>
+                    <button class="reset-default-btn" id="resetWeightsBtn" onclick="resetWeightsDefault()" style="display:none;">
+                        <i class="fas fa-rotate-left"></i> <span data-i18n="reset_default">Reset default</span>
+                    </button>
+                </div>
+
+                <div class="weights-container" id="weightsContainer">
+                    <div class="weight-slider-row">
+                        <label>C - <span data-i18n="w_citations">Citations</span></label>
+                        <input type="range" class="weight-slider" id="slider_C" min="0" max="100" value="35" disabled
+                               oninput="onSliderChange('C', this.value)">
+                        <span class="slider-val" id="val_C">0.35</span>
+                    </div>
+                    <div class="weight-slider-row">
+                        <label>A - <span data-i18n="w_authorship">Authorship</span></label>
+                        <input type="range" class="weight-slider" id="slider_A" min="0" max="100" value="25" disabled
+                               oninput="onSliderChange('A', this.value)">
+                        <span class="slider-val" id="val_A">0.25</span>
+                    </div>
+                    <div class="weight-slider-row">
+                        <label>S - <span data-i18n="w_sophistication">Sophistication</span></label>
+                        <input type="range" class="weight-slider" id="slider_S" min="0" max="100" value="22" disabled
+                               oninput="onSliderChange('S', this.value)">
+                        <span class="slider-val" id="val_S">0.22</span>
+                    </div>
+                    <div class="weight-slider-row">
+                        <label>J - <span data-i18n="w_journal">Journal</span></label>
+                        <input type="range" class="weight-slider" id="slider_J" min="0" max="100" value="10" disabled
+                               oninput="onSliderChange('J', this.value)">
+                        <span class="slider-val" id="val_J">0.10</span>
+                    </div>
+                    <div class="weight-sum-row">
+                        <span data-i18n="sum_label">Sum</span>: <strong id="weightSum">1.00</strong>
+                        <span id="weightWarning" class="weight-warning" style="display:none;">
+                            <i class="fas fa-triangle-exclamation"></i> <span data-i18n="sum_warning">Sum must be 1.00</span>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- ── Hyperauthorship Position Weights ──────────────── -->
+                <div class="position-weights-section">
+                    <div class="weight-toggle">
+                        <label class="toggle-label">
+                            <input type="checkbox" id="customPositionToggle" onchange="togglePositionWeights()">
+                            <span class="toggle-slider"></span>
+                            <span class="toggle-text" data-i18n="customize_positions">Customize authorship penalties</span>
+                        </label>
+                        <button class="reset-default-btn" id="resetPositionsBtn" onclick="resetPositionsDefault()" style="display:none;">
+                            <i class="fas fa-rotate-left"></i> <span data-i18n="reset_default">Reset default</span>
+                        </button>
+                    </div>
+                    <div id="positionWeightsContainer" style="margin-top:8px;">
+                        <div class="pos-weight-row">
+                            <label data-i18n="pos_sole">Sole author</label>
+                            <input type="range" class="pos-slider" id="pos_single" min="0" max="200" value="120" step="5" disabled
+                                   oninput="updatePosVal('single', this.value)">
+                            <span class="pos-val" id="posval_single">1.20</span>
+                        </div>
+                        <div class="pos-weight-row">
+                            <label data-i18n="pos_first">First author</label>
+                            <input type="range" class="pos-slider" id="pos_first" min="0" max="200" value="100" step="5" disabled
+                                   oninput="updatePosVal('first', this.value)">
+                            <span class="pos-val" id="posval_first">1.00</span>
+                        </div>
+                        <div class="pos-weight-row">
+                            <label data-i18n="pos_corresponding">Co-first / Corresponding</label>
+                            <input type="range" class="pos-slider" id="pos_corresponding" min="0" max="200" value="90" step="5" disabled
+                                   oninput="updatePosVal('corresponding', this.value)">
+                            <span class="pos-val" id="posval_corresponding">0.90</span>
+                        </div>
+                        <div class="pos-weight-row">
+                            <label data-i18n="pos_last">Last author (PI)</label>
+                            <input type="range" class="pos-slider" id="pos_last" min="0" max="200" value="80" step="5" disabled
+                                   oninput="updatePosVal('last', this.value)">
+                            <span class="pos-val" id="posval_last">0.80</span>
+                        </div>
+                        <div class="pos-weight-row">
+                            <label data-i18n="pos_middle">Middle author</label>
+                            <input type="range" class="pos-slider" id="pos_middle" min="0" max="200" value="40" step="5" disabled
+                                   oninput="updatePosVal('middle', this.value)">
+                            <span class="pos-val" id="posval_middle">0.40</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ═══ Step 3: Search Researcher ══════════════════════════ -->
+            <div class="step-section" id="step3" style="display:none;">
+                <h3><span class="step-num">3</span> <span data-i18n="step3_title">Search Researcher</span></h3>
+
+                <div class="search-type-toggle">
+                    <button class="search-type-btn active" data-type="name" onclick="setSearchType('name')">
+                        <i class="fas fa-user"></i> <span data-i18n="search_by_name">By Name</span>
+                    </button>
+                    <button class="search-type-btn" data-type="orcid" onclick="setSearchType('orcid')">
+                        <i class="fab fa-orcid"></i> <span data-i18n="search_by_orcid">By ORCID</span>
+                    </button>
+                </div>
+
+                <div class="search-box">
+                    <input type="text" id="searchInput" data-i18n-placeholder="search_placeholder" placeholder="Enter researcher name...">
+                    <button class="search-btn" onclick="doSearch()" id="searchBtn">
+                        <i class="fas fa-magnifying-glass"></i> <span data-i18n="search_btn">Search</span>
+                    </button>
+                </div>
+                <small class="muted" id="searchHint" data-i18n="search_hint">
+                    Tip: Use ORCID for exact researcher identification
+                </small>
+
+                <!-- Search Results / Validation -->
+                <div id="searchResults" style="display:none;">
+                    <h3 style="margin-top:16px;">
+                        <i class="fas fa-users"></i> <span data-i18n="confirm_researcher">Confirm the correct researcher:</span>
+                    </h3>
+                    <p class="muted" style="font-size:0.85rem; margin-bottom:8px;">
+                        <span data-i18n="verify_institution">Verify the <strong>institution</strong> to confirm identity</span>
+                    </p>
+                    <div id="candidatesList" class="candidates-list"></div>
+                </div>
+
+                <!-- Error -->
+                <div id="searchError" class="error-box" style="display:none;">
+                    <i class="fas fa-circle-exclamation"></i>
+                    <span id="searchErrorMsg"></span>
+                </div>
+            </div>
+
+            <!-- ═══ Step 4: Calculation / Progress ═════════════════════ -->
+            <div class="step-section" id="step4" style="display:none;">
+                <h3><span class="step-num">4</span> <span data-i18n="step4_title">Calculating KANON-Index...</span></h3>
+
+                <div class="progress-container">
+                    <div class="progress-info">
+                        <span id="progressText" data-i18n="progress_start">Starting calculation...</span>
+                        <span id="progressPercent">0%</span>
+                    </div>
+                    <div class="progress-bar-outer">
+                        <div class="progress-bar-inner" id="progressBar"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ═══ Step 5: Results ════════════════════════════════════ -->
+            <div class="step-section" id="step5" style="display:none;">
+                <h3><span class="step-num"><i class="fas fa-check"></i></span> <span data-i18n="step5_title">Result</span></h3>
+
+                <div class="result-header">
+                    <div class="result-name" id="resultName"></div>
+                    <div class="result-inst" id="resultInst"></div>
+                    <div class="result-orcid" id="resultOrcid"></div>
+                </div>
+
+                <div class="kanon-badge" id="kanonBadge">
+                    <div class="kanon-label">KANON-Index</div>
+                    <div class="kanon-value" id="kanonValue">--</div>
+                    <div class="kanon-field" id="kanonField"></div>
+                </div>
+
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-icon"><i class="fas fa-hashtag"></i></div>
+                        <div class="metric-val" id="mHindex">--</div>
+                        <div class="metric-lbl">h-index</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon"><i class="fas fa-quote-right"></i></div>
+                        <div class="metric-val" id="mCitations">--</div>
+                        <div class="metric-lbl" data-i18n="lbl_citations">Citations</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon"><i class="fas fa-file-lines"></i></div>
+                        <div class="metric-val" id="mPapers">--</div>
+                        <div class="metric-lbl" data-i18n="lbl_papers">Papers (10 yrs)</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon"><i class="fas fa-users"></i></div>
+                        <div class="metric-val" id="mAuthors">--</div>
+                        <div class="metric-lbl" data-i18n="lbl_authors">Authors/paper</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon"><i class="fas fa-star"></i></div>
+                        <div class="metric-val" id="mFirstAuth">--</div>
+                        <div class="metric-lbl" data-i18n="lbl_first_auth">1st Author (%)</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon"><i class="fas fa-gears"></i></div>
+                        <div class="metric-val" id="mComplexity">--</div>
+                        <div class="metric-lbl" data-i18n="lbl_complexity">Complexity</div>
+                    </div>
+                </div>
+
+                <!-- Component Breakdown -->
+                <div class="components-section">
+                    <h3 data-i18n="components_title">KANON Components</h3>
+                    <div class="component-bars">
+                        <div class="comp-row">
+                            <span class="comp-label">C - <span data-i18n="w_citations">Citations</span></span>
+                            <span class="comp-bar"><span class="comp-fill comp-c" id="compC"></span></span>
+                            <span class="comp-val" id="compCval">0</span>
+                        </div>
+                        <div class="comp-row">
+                            <span class="comp-label">A - <span data-i18n="w_authorship">Authorship</span></span>
+                            <span class="comp-bar"><span class="comp-fill comp-a" id="compA"></span></span>
+                            <span class="comp-val" id="compAval">0</span>
+                        </div>
+                        <div class="comp-row">
+                            <span class="comp-label">S - <span data-i18n="w_sophistication">Sophistication</span></span>
+                            <span class="comp-bar"><span class="comp-fill comp-m" id="compS"></span></span>
+                            <span class="comp-val" id="compSval">0</span>
+                        </div>
+                        <div class="comp-row">
+                            <span class="comp-label">J - <span data-i18n="w_journal">Journal</span></span>
+                            <span class="comp-bar"><span class="comp-fill comp-j" id="compJ"></span></span>
+                            <span class="comp-val" id="compJval">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-actions">
+                    <button class="btn-action btn-new" onclick="resetAll()">
+                        <i class="fas fa-arrow-rotate-right"></i> <span data-i18n="new_search">New Search</span>
+                    </button>
+                    <button class="btn-action btn-download" onclick="downloadResult()">
+                        <i class="fas fa-download"></i> <span data-i18n="download_json">Download JSON</span>
+                    </button>
+                </div>
+
+                <p class="muted" style="text-align:center; margin-top:12px; font-size:0.85rem;">
+                    <span data-i18n="calculated_at">Calculated at</span>: <span id="calcTime">--</span>
+                </p>
+            </div>
+
+            <!-- ═══ About Section ══════════════════════════════════════ -->
+            <div class="about-section">
+                <h3><i class="fas fa-circle-info"></i> <span data-i18n="about_title">About the KANON-Index</span></h3>
+                <div class="content">
+                    <p data-i18n="about_text">The <strong>KANON-Index</strong> (from Greek <em>kanon</em>: canon, standard) integrates five
+                    components to evaluate individual scientific contribution:</p>
+                    <p data-i18n="about_components">
+                        <strong>C</strong> = Citation impact (field-normalized) &bull;
+                        <strong>A</strong> = Authorship contribution (hyperauthorship penalty) &bull;
+                        <strong>M</strong> = Methodological complexity (automatic technique detection) &bull;
+                        <strong>R</strong> = Experimental cost &bull;
+                        <strong>J</strong> = Journal impact
+                    </p>
+                    <p class="muted" style="font-size:0.85rem;" data-i18n="about_data">
+                        Data: <a href="https://openalex.org" target="_blank" style="color:#fff;">OpenAlex API</a>
+                        (open access) &bull; Analysis: last 10 years &bull;
+                        100% browser-side calculation (no data sent to servers)
+                    </p>
+                </div>
+            </div>
+
+        </div><!-- /.panel -->
+    </div>
+</div>
+
+<!-- ── Footer ─────────────────────────────────────────────────────── -->
+<div class="footer">
+    <p style="font-size:0.9rem;">
+        Powered by <a href="https://openalex.org" target="_blank" style="color:#fff; text-decoration:underline;">OpenAlex</a>
+        &bull; KANON-Index vers&atilde;o 1 &copy; 2026
+        &bull; Luiz Dione Barbosa De-Melo
+    </p>
+</div>
+
+<!-- JavaScript -->
+<script src="js/kanon.js"></script>
+<script>
+// ═══════════════════════════════════════════════════════════════════
+// i18n - Internationalization System
+// ═══════════════════════════════════════════════════════════════════
+
+const I18N = {
+    en: {
+        header_subtitle: 'A Computational Metric for Individual Scientific Contribution Based on Methodological Complexity, Citation Impact, and Authorship Structure',
+        header_description: 'A free, open-source composite bibliometric index that evaluates researchers by integrating citations, authorship position, methodological complexity, experimental cost, and journal impact with cross-validated field-specific weights.',
+        period_title: 'Analysis Period',
+        period_default: 'Default: last',
+        period_years: 'years',
+        period_yrs: 'yrs',
+        period_or: '— or customize below —',
+        period_range_label: 'Period:',
+        period_hint: 'Drag the slider to select the analysis window (1–30 years)',
+        step1_title: 'Select Research Field',
+        step2_title: 'KANON Index Weights',
+        step3_title: 'Search Researcher',
+        step4_title: 'Calculating KANON-Index...',
+        step5_title: 'Result',
+        field_chemistry: 'Chemistry',
+        field_medicine: 'Medicine',
+        field_physics: 'Physics',
+        field_economics: 'Economics',
+        customize_weights: 'Customize weights',
+        customize_positions: 'Customize authorship penalties',
+        w_citations: 'Citations',
+        w_authorship: 'Authorship',
+        w_complexity: 'Complexity',
+        w_cost: 'Cost',
+        w_sophistication: 'Sophistication',
+        w_journal: 'Journal',
+        sum_label: 'Sum',
+        sum_warning: 'Sum must be 1.00',
+        pos_sole: 'Sole author',
+        pos_first: 'First author',
+        pos_corresponding: 'Co-first / Corresponding',
+        pos_last: 'Last author (PI)',
+        pos_middle: 'Middle author',
+        search_by_name: 'By Name',
+        search_by_orcid: 'By ORCID',
+        search_placeholder: 'Enter researcher name...',
+        search_btn: 'Search',
+        search_hint: 'Tip: Use ORCID for exact researcher identification',
+        search_hint_orcid: 'ORCID ensures exact identification',
+        search_placeholder_orcid: '0000-0000-0000-0000',
+        confirm_researcher: 'Confirm the correct researcher:',
+        verify_institution: 'Verify the <strong>institution</strong> to confirm identity',
+        progress_start: 'Starting calculation...',
+        progress_connecting: 'Connecting to OpenAlex API...',
+        progress_fetching: 'Fetching publications (page {page})...',
+        progress_analyzing: 'Analyzing {count} publications...',
+        progress_complexity: 'Calculating methodological complexity...',
+        progress_kanon: 'Calculating KANON-Index...',
+        progress_done: 'Done!',
+        progress_no_pubs: 'No publications found in the last 10 years',
+        lbl_citations: 'Citations',
+        lbl_papers: 'Papers (10 yrs)',
+        lbl_authors: 'Authors/paper',
+        lbl_first_auth: '1st Author (%)',
+        lbl_complexity: 'Complexity',
+        components_title: 'KANON Components',
+        new_search: 'New Search',
+        download_json: 'Download JSON',
+        calculated_at: 'Calculated at',
+        about_title: 'About the KANON-Index',
+        about_text: 'The <strong>KANON-Index</strong> (from Greek <em>kanon</em>: canon, standard) integrates four components to evaluate individual scientific contribution:',
+        about_components: '<strong>C</strong> = Citation impact (field-normalized) &bull; <strong>A</strong> = Authorship contribution (hyperauthorship penalty) &bull; <strong>S</strong> = Methodological sophistication (S = &beta;&middot;S_text + (1&minus;&beta;)&middot;S_concepts) &bull; <strong>J</strong> = Journal impact',
+        about_data: 'Data: <a href="https://openalex.org" target="_blank" style="color:#fff;">OpenAlex API</a> (open access) &bull; Analysis: last 10 years &bull; 100% browser-side calculation (no data sent to servers)',
+        lang_btn: 'Versão Português',
+        select_btn: 'This is the researcher',
+        publications: 'publications',
+        citations_label: 'citations',
+        no_results: 'No researcher found. Try a different spelling or use ORCID.',
+        error_orcid: 'Invalid ORCID format. Use: 0000-0000-0000-0000',
+        error_min_chars: 'Enter at least 3 characters',
+        error_rate_limit: 'Too many requests. Please wait a few seconds and try again.',
+        error_connection: 'Error connecting to OpenAlex: ',
+        institution_unknown: 'Unknown institution',
+        reset_default: 'Reset default',
+        field_names: { chemistry: 'Chemistry', medicine: 'Medicine', physics: 'Physics', economics: 'Economics' }
+    },
+    pt: {
+        header_subtitle: 'Uma Métrica Computacional para Contribuição Científica Individual Baseada em Complexidade Metodológica, Impacto de Citações e Estrutura de Autoria',
+        header_description: 'Um índice bibliométrico composto, gratuito e de código aberto, que avalia pesquisadores integrando citações, posição de autoria, complexidade metodológica, custo experimental e impacto do periódico com pesos otimizados por validação cruzada.',
+        period_title: 'Período de Análise',
+        period_default: 'Padrão: últimos',
+        period_years: 'anos',
+        period_yrs: 'anos',
+        period_or: '— ou personalize abaixo —',
+        period_range_label: 'Período:',
+        period_hint: 'Arraste a barra para selecionar o intervalo de análise (1–30 anos)',
+        step1_title: 'Selecione a Área de Pesquisa',
+        step2_title: 'Pesos do Índice KANON',
+        step3_title: 'Buscar Pesquisador',
+        step4_title: 'Calculando KANON-Index...',
+        step5_title: 'Resultado',
+        field_chemistry: 'Química',
+        field_medicine: 'Medicina',
+        field_physics: 'Física',
+        field_economics: 'Economia',
+        customize_weights: 'Personalizar pesos',
+        customize_positions: 'Personalizar penalidades de autoria',
+        w_citations: 'Citações',
+        w_authorship: 'Autoria',
+        w_complexity: 'Complexidade',
+        w_cost: 'Custo',
+        w_sophistication: 'Sofisticação',
+        w_journal: 'Journal',
+        sum_label: 'Soma',
+        sum_warning: 'A soma deve ser 1.00',
+        pos_sole: 'Autor único',
+        pos_first: 'Primeiro autor',
+        pos_corresponding: 'Co-primeiro / Correspondente',
+        pos_last: 'Último autor (PI)',
+        pos_middle: 'Autor intermediário',
+        search_by_name: 'Por Nome',
+        search_by_orcid: 'Por ORCID',
+        search_placeholder: 'Digite o nome do pesquisador...',
+        search_btn: 'Buscar',
+        search_hint: 'Dica: Use ORCID para identificação exata do pesquisador',
+        search_hint_orcid: 'ORCID garante identificação exata',
+        search_placeholder_orcid: '0000-0000-0000-0000',
+        confirm_researcher: 'Confirme o pesquisador correto:',
+        verify_institution: 'Verifique o <strong>local de trabalho</strong> para confirmar a identidade',
+        progress_start: 'Iniciando cálculo...',
+        progress_connecting: 'Conectando à API OpenAlex...',
+        progress_fetching: 'Buscando publicações (página {page})...',
+        progress_analyzing: 'Analisando {count} publicações...',
+        progress_complexity: 'Calculando complexidade metodológica...',
+        progress_kanon: 'Calculando KANON-Index...',
+        progress_done: 'Concluído!',
+        progress_no_pubs: 'Nenhuma publicação encontrada nos últimos 10 anos',
+        lbl_citations: 'Citações',
+        lbl_papers: 'Artigos (10 anos)',
+        lbl_authors: 'Autores/artigo',
+        lbl_first_auth: '1º Autor (%)',
+        lbl_complexity: 'Complexidade',
+        components_title: 'Componentes do KANON',
+        new_search: 'Nova Busca',
+        download_json: 'Baixar JSON',
+        calculated_at: 'Calculado em',
+        about_title: 'Sobre o KANON-Index',
+        about_text: 'O <strong>KANON-Index</strong> (do grego <em>kanon</em>: cânone, padrão) integra quatro componentes para avaliar contribuição científica individual:',
+        about_components: '<strong>C</strong> = Impacto de citações (normalizado por campo) &bull; <strong>A</strong> = Contribuição de autoria (penalização de hyperauthorship) &bull; <strong>S</strong> = Sofisticação metodológica (S = &beta;&middot;S_text + (1&minus;&beta;)&middot;S_concepts) &bull; <strong>J</strong> = Impacto de journal',
+        about_data: 'Dados: <a href="https://openalex.org" target="_blank" style="color:#fff;">OpenAlex API</a> (acesso aberto) &bull; Análise: últimos 10 anos &bull; Cálculo 100% no navegador (sem envio de dados a servidores)',
+        lang_btn: 'English Version',
+        select_btn: 'Este é o pesquisador',
+        publications: 'publicações',
+        citations_label: 'citações',
+        no_results: 'Nenhum pesquisador encontrado. Tente outra grafia ou use ORCID.',
+        error_orcid: 'Formato ORCID inválido. Use: 0000-0000-0000-0000',
+        error_min_chars: 'Digite pelo menos 3 caracteres',
+        error_rate_limit: 'Muitas requisições. Aguarde alguns segundos e tente novamente.',
+        error_connection: 'Erro ao conectar com OpenAlex: ',
+        institution_unknown: 'Instituição desconhecida',
+        reset_default: 'Restaurar padrão',
+        field_names: { chemistry: 'Química', medicine: 'Medicina', physics: 'Física', economics: 'Economia' }
+    }
+};
+
+let currentLang = 'en';
+
+function t(key) {
+    return I18N[currentLang][key] || I18N['en'][key] || key;
+}
+
+function toggleLanguage() {
+    currentLang = currentLang === 'en' ? 'pt' : 'en';
+    document.documentElement.lang = currentLang === 'en' ? 'en' : 'pt-BR';
+    applyTranslations();
+}
+
+function applyTranslations() {
+    // Update all data-i18n elements
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        const val = t(key);
+        if (val) el.innerHTML = val;
+    });
+
+    // Update placeholders
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        const val = t(key);
+        if (val) el.placeholder = val;
+    });
+
+    // Update language button
+    document.getElementById('langBtnText').textContent = t('lang_btn');
+
+    // Update search hint and placeholder based on current search type
+    const inp = document.getElementById('searchInput');
+    if (searchType === 'orcid') {
+        inp.placeholder = t('search_placeholder_orcid');
+        document.getElementById('searchHint').textContent = t('search_hint_orcid');
+    } else {
+        inp.placeholder = t('search_placeholder');
+        document.getElementById('searchHint').textContent = t('search_hint');
+    }
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// Weight Slider Redistribution
+// ═══════════════════════════════════════════════════════════════════
+
+const WEIGHT_KEYS = ['C', 'A', 'S', 'J'];
+
+function onSliderChange(changedKey, rawValue) {
+    const newVal = parseInt(rawValue);
+    const sliders = {};
+    let oldTotal = 0;
+
+    // Read all current slider values
+    WEIGHT_KEYS.forEach(k => {
+        sliders[k] = parseInt(document.getElementById('slider_' + k).value);
+        oldTotal += sliders[k];
+    });
+
+    const oldVal = sliders[changedKey];
+    const delta = newVal - oldVal; // positive = increased, negative = decreased
+
+    if (delta === 0) return;
+
+    // Set the changed slider
+    sliders[changedKey] = newVal;
+
+    // Distribute the delta uniformly among the OTHER 4 keys
+    const otherKeys = WEIGHT_KEYS.filter(k => k !== changedKey);
+    let remaining = -delta; // we need to compensate by this amount
+
+    // First pass: distribute evenly
+    const perKey = Math.floor(remaining / otherKeys.length);
+    let leftover = remaining - (perKey * otherKeys.length);
+
+    otherKeys.forEach(k => {
+        sliders[k] += perKey;
+    });
+
+    // Distribute leftover 1 unit at a time
+    for (let i = 0; Math.abs(leftover) > 0 && i < otherKeys.length; i++) {
+        const step = leftover > 0 ? 1 : -1;
+        sliders[otherKeys[i]] += step;
+        leftover -= step;
+    }
+
+    // Clamp all values to [0, 100]
+    otherKeys.forEach(k => {
+        sliders[k] = Math.max(0, Math.min(100, sliders[k]));
+    });
+
+    // Ensure total is exactly 100 (fix rounding)
+    let total = 0;
+    WEIGHT_KEYS.forEach(k => { total += sliders[k]; });
+    if (total !== 100) {
+        // Adjust the last other key to make it sum to 100
+        const diff = 100 - total;
+        for (let i = otherKeys.length - 1; i >= 0; i--) {
+            const newV = sliders[otherKeys[i]] + diff;
+            if (newV >= 0 && newV <= 100) {
+                sliders[otherKeys[i]] = newV;
+                break;
+            }
+        }
+    }
+
+    // Apply to DOM
+    WEIGHT_KEYS.forEach(k => {
+        document.getElementById('slider_' + k).value = sliders[k];
+        document.getElementById('val_' + k).textContent = (sliders[k] / 100).toFixed(2);
+    });
+
+    updateWeightSumFromSliders();
+}
+
+function updateWeightSumFromSliders() {
+    let sum = 0;
+    WEIGHT_KEYS.forEach(k => {
+        sum += parseInt(document.getElementById('slider_' + k).value);
+    });
+    const sumNorm = sum / 100;
+    document.getElementById('weightSum').textContent = sumNorm.toFixed(2);
+    document.getElementById('weightWarning').style.display =
+        Math.abs(sumNorm - 1.0) > 0.02 ? 'inline' : 'none';
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// Override kanon.js functions for slider-based weights
+// ═══════════════════════════════════════════════════════════════════
+
+// Override selectField to update sliders
+const _origSelectField = selectField;
+selectField = function(field) {
+    selectedField = field;
+    document.querySelectorAll('.field-btn').forEach(b => b.classList.remove('active'));
+    document.querySelector(`[data-field="${field}"]`).classList.add('active');
+
+    currentWeights = { ...FIELD_WEIGHTS[field] };
+
+    // Update sliders
+    WEIGHT_KEYS.forEach(k => {
+        const pct = Math.round(currentWeights[k] * 100);
+        document.getElementById('slider_' + k).value = pct;
+        document.getElementById('val_' + k).textContent = currentWeights[k].toFixed(2);
+    });
+    updateWeightSumFromSliders();
+
+    show('step2');
+    show('step3');
+    hide('step4');
+    hide('step5');
+    hide('searchResults');
+    hide('searchError');
+};
+
+// Override toggleCustomWeights for sliders
+toggleCustomWeights = function() {
+    const custom = document.getElementById('customWeightsToggle').checked;
+    document.querySelectorAll('.weight-slider').forEach(s => s.disabled = !custom);
+    document.getElementById('resetWeightsBtn').style.display = custom ? 'inline-flex' : 'none';
+};
+
+// Override getWeights to read from sliders
+getWeights = function() {
+    const w = {};
+    WEIGHT_KEYS.forEach(k => {
+        w[k] = parseInt(document.getElementById('slider_' + k).value) / 100;
+    });
+    // Normalize just in case
+    const total = WEIGHT_KEYS.reduce((sum, k) => sum + w[k], 0);
+    if (total > 0 && Math.abs(total - 1.0) > 0.001) {
+        WEIGHT_KEYS.forEach(k => { w[k] = w[k] / total; });
+    }
+    return w;
+};
+
+// ═══════════════════════════════════════════════════════════════════
+// Position Weights (Hyperauthorship)
+// ═══════════════════════════════════════════════════════════════════
+
+function togglePositionWeights() {
+    const custom = document.getElementById('customPositionToggle').checked;
+    document.querySelectorAll('.pos-slider').forEach(s => s.disabled = !custom);
+    document.getElementById('resetPositionsBtn').style.display = custom ? 'inline-flex' : 'none';
+}
+
+function updatePosVal(key, rawValue) {
+    const val = parseInt(rawValue) / 100;
+    document.getElementById('posval_' + key).textContent = val.toFixed(2);
+    // Update the POSITION_WEIGHTS object used by kanon.js
+    POSITION_WEIGHTS[key] = val;
+}
+
+// Default position weights (same as kanon.js initial values)
+const DEFAULT_POSITION_WEIGHTS = { single: 1.2, first: 1.0, corresponding: 0.9, last: 0.8, middle: 0.4 };
+
+function resetWeightsDefault() {
+    if (!selectedField) return;
+    const defaults = FIELD_WEIGHTS[selectedField] || FIELD_WEIGHTS.default;
+    currentWeights = { ...defaults };
+    WEIGHT_KEYS.forEach(k => {
+        const pct = Math.round(defaults[k] * 100);
+        document.getElementById('slider_' + k).value = pct;
+        document.getElementById('val_' + k).textContent = defaults[k].toFixed(2);
+    });
+    updateWeightSumFromSliders();
+}
+
+function resetPositionsDefault() {
+    Object.keys(DEFAULT_POSITION_WEIGHTS).forEach(key => {
+        const val = DEFAULT_POSITION_WEIGHTS[key];
+        POSITION_WEIGHTS[key] = val;
+        document.getElementById('pos_' + key).value = Math.round(val * 100);
+        document.getElementById('posval_' + key).textContent = val.toFixed(2);
+    });
+}
+
+// Override calculateAuthorshipScore to use current position weights
+const _origCalcAuthScore = calculateAuthorshipScore;
+calculateAuthorshipScore = function(position, totalAuthors, alpha = 0.8) {
+    const pw = POSITION_WEIGHTS[position] || 0.4;
+    return Math.min(pw / Math.pow(Math.max(totalAuthors, 1), alpha), 1.0);
+};
+
+// Override renderCandidates to use i18n
+const _origRenderCandidates = renderCandidates;
+renderCandidates = function(candidates) {
+    const list = document.getElementById('candidatesList');
+    list.innerHTML = '';
+
+    candidates.forEach((c, idx) => {
+        const instArr = c.last_known_institutions || [];
+        const inst = instArr.length > 0 ? instArr[0] : (c.last_known_institution || null);
+        const instName = inst?.display_name || t('institution_unknown');
+        const country = inst?.country_code || '';
+        const topicsList = c.topics || c.x_concepts || [];
+        const topics = topicsList.slice(0, 3).map(t => t.display_name);
+        const id = (c.id || '').replace('https://openalex.org/', '');
+
+        const card = document.createElement('div');
+        card.className = 'candidate-card';
+        card.innerHTML = `
+            <div class="cand-info">
+                <div class="cand-name">${esc(c.display_name || 'Unknown')}</div>
+                <div class="cand-inst">
+                    <i class="fas fa-building"></i> ${esc(instName)}
+                    ${country ? `<span class="cand-country">(${esc(country)})</span>` : ''}
+                </div>
+                <div class="cand-meta">
+                    <span><i class="fas fa-file-lines"></i> ${(c.works_count || 0).toLocaleString()} ${I18N[currentLang].publications}</span>
+                    <span><i class="fas fa-quote-right"></i> ${(c.cited_by_count || 0).toLocaleString()} ${I18N[currentLang].citations_label}</span>
+                    ${c.orcid ? `<span><i class="fab fa-orcid"></i> ${esc(c.orcid)}</span>` : ''}
+                </div>
+                ${topics.length ? `<div class="cand-topics">${topics.map(t => `<span class="topic-tag">${esc(t)}</span>`).join('')}</div>` : ''}
+            </div>
+            <button class="btn-select">
+                <i class="fas fa-check"></i> ${I18N[currentLang].select_btn}
+            </button>
+        `;
+
+        card.querySelector('.btn-select').addEventListener('click', () => {
+            selectAuthor(id, c.display_name || 'Unknown', instName, c.orcid || '');
+        });
+
+        list.appendChild(card);
+    });
+};
+
+// Override displayResults for i18n field names
+const _origDisplayResults = displayResults;
+displayResults = function(d) {
+    document.getElementById('resultName').textContent = d.researcher_name;
+    document.getElementById('resultInst').textContent = d.institution || '';
+    document.getElementById('resultOrcid').textContent = d.orcid ? `ORCID: ${d.orcid}` : '';
+
+    document.getElementById('kanonValue').textContent = d.kanon_index.toFixed(2);
+
+    const fieldNames = t('field_names');
+    document.getElementById('kanonField').textContent = fieldNames[d.field] || '';
+
+    const badge = document.getElementById('kanonBadge');
+    if (d.kanon_index >= 30) badge.className = 'kanon-badge kanon-high';
+    else if (d.kanon_index >= 15) badge.className = 'kanon-badge kanon-mid';
+    else badge.className = 'kanon-badge kanon-low';
+
+    document.getElementById('mHindex').textContent = d.h_index;
+    document.getElementById('mCitations').textContent = d.total_citations.toLocaleString();
+    document.getElementById('mPapers').textContent = d.total_papers;
+    document.getElementById('mAuthors').textContent = d.avg_authors.toFixed(1);
+    document.getElementById('mFirstAuth').textContent = (d.first_author_fraction * 100).toFixed(0) + '%';
+    document.getElementById('mComplexity').textContent = d.avg_complexity.toFixed(3);
+
+    setCompBar('C', d.component_citations);
+    setCompBar('A', d.component_authorship);
+    setCompBar('S', d.component_sophistication);
+    setCompBar('J', d.component_journal);
+
+    document.getElementById('calcTime').textContent = d.calculated_at;
+};
+
+// Override setSearchType for i18n
+const _origSetSearchType = setSearchType;
+setSearchType = function(type) {
+    searchType = type;
+    document.querySelectorAll('.search-type-btn').forEach(b => b.classList.remove('active'));
+    document.querySelector(`[data-type="${type}"]`).classList.add('active');
+
+    const inp = document.getElementById('searchInput');
+    if (type === 'orcid') {
+        inp.placeholder = t('search_placeholder_orcid');
+        document.getElementById('searchHint').textContent = t('search_hint_orcid');
+    } else {
+        inp.placeholder = t('search_placeholder');
+        document.getElementById('searchHint').textContent = t('search_hint');
+    }
+};
+
+// Override showError for i18n
+const _origShowError = showError;
+showError = function(msg) {
+    document.getElementById('searchErrorMsg').textContent = msg;
+    show('searchError');
+};
+
+// Override doSearch for i18n error messages
+const _origDoSearch = doSearch;
+doSearch = async function() {
+    const rawQuery = document.getElementById('searchInput').value.trim();
+    const query = rawQuery.replace(/[<>]/g, '');
+    if (!query) return;
+
+    const btn = document.getElementById('searchBtn');
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ...';
+    hide('searchResults');
+    hide('searchError');
+    hide('step4');
+    hide('step5');
+
+    try {
+        let authors;
+        if (searchType === 'orcid') {
+            let orcid = query;
+            if (orcid.startsWith('https://orcid.org/')) {
+                orcid = orcid.replace('https://orcid.org/', '');
+            }
+            if (!/^\d{4}-\d{4}-\d{4}-\d{3}[\dX]$/.test(orcid)) {
+                showError(t('error_orcid'));
+                return;
+            }
+            authors = await searchAuthorByOrcid(orcid);
+        } else {
+            if (query.length < 3) {
+                showError(t('error_min_chars'));
+                return;
+            }
+            authors = await searchAuthorByName(query);
+        }
+
+        if (!authors.length) {
+            showError(t('no_results'));
+            return;
+        }
+
+        renderCandidates(authors);
+        show('searchResults');
+
+    } catch (err) {
+        if (err.message && err.message.includes('429')) {
+            showError(t('error_rate_limit'));
+        } else {
+            showError(t('error_connection') + (err.message || ''));
+        }
+    } finally {
+        btn.disabled = false;
+        btn.innerHTML = `<i class="fas fa-magnifying-glass"></i> ${t('search_btn')}`;
+    }
+};
+
+// Override startCalculation for i18n progress messages
+const _origStartCalc = startCalculation;
+startCalculation = async function(authorId, name, institution, orcid) {
+    const bar = document.getElementById('progressBar');
+    const text = document.getElementById('progressText');
+    const pct = document.getElementById('progressPercent');
+
+    function setProgress(msg, percent) {
+        bar.style.width = percent + '%';
+        pct.textContent = Math.round(percent) + '%';
+        text.textContent = msg;
+    }
+
+    bar.style.background = '';
+    setProgress(t('progress_connecting'), 5);
+
+    try {
+        const works = await getAuthorWorks(authorId, (msg, p) => {
+            setProgress(msg, p);
+        });
+
+        if (!works.length) {
+            setProgress(t('progress_no_pubs'), 100);
+            bar.style.background = '#e67e22';
+            return;
+        }
+
+        setProgress(t('progress_analyzing').replace('{count}', works.length), 75);
+        await sleep(200);
+
+        setProgress(t('progress_complexity'), 85);
+        await sleep(200);
+
+        const weights = getWeights();
+        const metrics = calculateKanon(works, authorId, weights);
+
+        setProgress(t('progress_kanon'), 95);
+        await sleep(300);
+
+        setProgress(t('progress_done'), 100);
+
+        lastResult = {
+            researcher_name: name,
+            institution: institution,
+            orcid: orcid,
+            openalex_id: authorId,
+            field: selectedField,
+            weights: weights,
+            position_weights: { ...POSITION_WEIGHTS },
+            calculated_at: new Date().toLocaleString(currentLang === 'pt' ? 'pt-BR' : 'en-US'),
+            ...metrics
+        };
+
+        setTimeout(() => {
+            hide('step4');
+            displayResults(lastResult);
+            show('step5');
+        }, 400);
+
+    } catch (err) {
+        setProgress('Error: ' + err.message, 100);
+        bar.style.background = '#e74c3c';
+    }
+};
+
+// ═══════════════════════════════════════════════════════════════════
+// Analysis Period Toggle + Slider
+// ═══════════════════════════════════════════════════════════════════
+
+function togglePeriodMode() {
+    const isDefault = document.getElementById('defaultPeriodCheck').checked;
+    const customRow = document.getElementById('periodCustomRow');
+    if (isDefault) {
+        customRow.classList.remove('visible');
+        selectedPeriodYears = 10;
+    } else {
+        customRow.classList.add('visible');
+        const sliderVal = parseInt(document.getElementById('periodSlider').value);
+        selectedPeriodYears = sliderVal;
+        updatePeriodDisplay(sliderVal);
+    }
+}
+
+function onPeriodSliderChange(val) {
+    val = parseInt(val);
+    selectedPeriodYears = val;
+    updatePeriodDisplay(val);
+}
+
+function updatePeriodDisplay(val) {
+    const label = val === 1 ? '1 ' + t('period_yrs') : val + ' ' + t('period_yrs');
+    document.getElementById('periodValueDisplay').textContent = label;
+}
+
+function resetPeriodSelector() {
+    selectedPeriodYears = 10;
+    document.getElementById('defaultPeriodCheck').checked = true;
+    document.getElementById('periodCustomRow').classList.remove('visible');
+    document.getElementById('periodSlider').value = 10;
+    updatePeriodDisplay(10);
+}
+
+// Override resetAll to also reset position weights and language-aware
+const _origResetAll = resetAll;
+resetAll = function() {
+    selectedField = null;
+    selectedAuthor = null;
+    lastResult = null;
+    searchType = 'name';
+
+    document.querySelectorAll('.field-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('searchInput').value = '';
+    document.getElementById('customWeightsToggle').checked = false;
+    document.getElementById('customPositionToggle').checked = false;
+    document.querySelectorAll('.weight-slider').forEach(s => s.disabled = true);
+    document.querySelectorAll('.pos-slider').forEach(s => s.disabled = true);
+    resetPeriodSelector();
+
+    // Reset position weights to defaults
+    POSITION_WEIGHTS.single = 1.2;
+    POSITION_WEIGHTS.first = 1.0;
+    POSITION_WEIGHTS.corresponding = 0.9;
+    POSITION_WEIGHTS.last = 0.8;
+    POSITION_WEIGHTS.middle = 0.4;
+    ['single','first','corresponding','last','middle'].forEach(k => {
+        document.getElementById('pos_' + k).value = Math.round(POSITION_WEIGHTS[k] * 100);
+        document.getElementById('posval_' + k).textContent = POSITION_WEIGHTS[k].toFixed(2);
+    });
+
+    hide('step2'); hide('step3'); hide('step4'); hide('step5');
+    hide('searchResults'); hide('searchError');
+
+    document.getElementById('progressBar').style.width = '0%';
+    document.getElementById('progressBar').style.background = '';
+    document.getElementById('progressPercent').textContent = '0%';
+
+    setSearchType('name');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+
+// Apply translations on load
+document.addEventListener('DOMContentLoaded', () => {
+    applyTranslations();
+});
+</script>
+
+</body>
+</html>

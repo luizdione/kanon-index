@@ -1,0 +1,501 @@
+name,orcid,field,institution
+Aviv Regev,0000-0003-3293-3158,Medicine,
+Kevin W. Eliceiri,0000-0001-8678-670X,Medicine,University of Wisconsin System
+Eugene W. Myers,0000-0002-6580-7839,Medicine,Okinawa Institute of Science and Technology Graduate University
+Nils Gehlenborg,0000-0003-0327-8297,Medicine,Harvard University
+Roland Eils,0000-0002-0034-4036,Medicine,Heidelberg University
+Sarah A. Teichmann,0000-0002-6294-6366,Medicine,Stem Cell Institute
+Mark D. Robinson,0000-0002-3048-5518,Medicine,SIB Swiss Institute of Bioinformatics
+Pavel Tomančák,0000-0002-2222-9370,Medicine,Center for Systems Biology Dresden
+Curtis Rueden,0000-0001-7055-6707,Medicine,University of Wisconsin–Madison
+Fabian J. Theis,0000-0002-2419-1943,Medicine,Helmholtz Zentrum München
+Stephan Saalfeld,0000-0002-4106-1761,Medicine,Janelia Research Campus
+Ignacio Arganda‐Carreras,0000-0003-0229-5722,Medicine,University of the Basque Country
+Jean-Yves Tinévez,0000-0002-0998-4718,Medicine,Institut Pasteur
+Stephan Preibisch,0000-0002-0276-494X,Medicine,Howard Hughes Medical Institute
+Benjamin Schmid,0000-0002-9327-2296,Medicine,Friedrich-Alexander-Universität Erlangen-Nürnberg
+Erwin Frise,0000-0002-9281-4567,Medicine,
+Tobias Pietzsch,0000-0002-9477-3957,Medicine,
+Rahul Satija,0000-0002-1479-664X,Medicine,New York Genome Center
+Garry P. Nolan,0000-0002-8862-9043,Medicine,Stanford Medicine
+Xiaowei Zhuang,0000-0002-6034-7853,Medicine,Howard Hughes Medical Institute
+Davis J. McCarthy,0000-0002-2218-6833,Medicine,The University of Melbourne
+John C. Marioni,0000-0001-9092-0852,Medicine,European Bioinformatics Institute
+Peter K. Sorger,0000-0002-3364-1838,Medicine,Harvard University
+Michael Hawrylycz,0000-0002-5741-8024,Medicine,Allen Institute
+Dana Pe’er,0000-0002-9259-8817,Medicine,
+Efthymia Papalexi,0000-0001-5898-694X,Medicine,Presage Biosciences (United States)
+Ed S. Lein,0000-0001-9012-6552,Medicine,Allen Institute for Brain Science
+Atsushi Miyawaki,0000-0002-0671-4376,Medicine,Roslin Institute
+Susan M. Sunkin,0000-0001-9893-3834,Medicine,Allen Institute for Brain Science
+Jean Yang,0000-0002-5271-2603,Medicine,University of Technology Sydney
+Emma Lundberg,0000-0001-7034-0850,Medicine,Palo Alto University
+Lydia Ng,0000-0002-7499-3514,Medicine,Allen Institute for Brain Science
+Yvan Saeys,0000-0002-0415-1506,Medicine,University College Ghent
+Michael W. Davidson,0000-0002-6420-952X,Medicine,
+Scott E. Fraser,0000-0002-5377-0223,Medicine,University of Southern California
+Anne E. Carpenter,0000-0003-1555-8261,Medicine,Broad Institute
+Shalev Itzkovitz,0000-0003-0685-2522,Medicine,Weizmann Institute of Science
+Jeff W. Lichtman,0000-0002-0208-3212,Medicine,Harvard University
+Evan Z. Macosko,0000-0002-2794-5165,Medicine,Broad Institute
+Maryann E. Martone,0000-0002-8406-3871,Medicine,University of San Diego
+Markus Sauer,0000-0002-1692-3219,Medicine,University of Würzburg
+Ernst H. K. Stelzer,0000-0003-1545-0736,Medicine,Goethe University Frankfurt
+Wataru Fujibuchi,0000-0003-2243-9981,Medicine,Kyoto University
+Nir Yosef,0000-0001-9004-1225,Medicine,Berkeley College
+Paul A. Clemons,0000-0002-1800-5112,Medicine,Broad Institute
+Gerard J. Kleywegt,0000-0002-4670-0331,Medicine,Bioinformatics Institute
+Jan Ellenberg,0000-0001-5909-701X,Medicine,European Bioinformatics Institute
+Allan R. Jones,0000-0001-6169-9749,Medicine,Allen Institute for Brain Science
+Zichen Wang,0000-0002-1415-1286,Medicine,Beijing University of Chinese Medicine
+Michael Boutros,0000-0002-9458-817X,Medicine,German Cancer Research Center
+Bosiljka Tasic,0000-0002-6861-4506,Medicine,Allen Institute for Brain Science
+Rex L. Chisholm,0000-0002-5638-3990,Medicine,Northwestern University
+Christian Eggeling,0000-0002-3698-5599,Medicine,Leibniz Institute of Photonic Technology
+Bo Wang,0000-0002-9620-3413,Medicine,North Sichuan Medical University
+Qing Nie,0000-0002-8804-3368,Medicine,"University of California, Irvine"
+Richard H. Scheuermann,0000-0003-1355-892X,Medicine,National Institutes of Health
+Roberto Romero,0000-0002-4448-5121,Medicine,Eunice Kennedy Shriver National Institute of Child Health and Human Development
+K. H. Nicolaides,0000-0003-1266-0711,Medicine,King's College London
+Ross S. Berkowitz,0000-0002-7569-898X,Medicine,Brigham and Women's Hospital
+Ronald J. Wapner,0000-0003-0727-1244,Medicine,Columbia University Irving Medical Center
+Susan J. Fisher,0000-0001-7745-4850,Medicine,"University of California, San Francisco"
+David Hill,0000-0003-1970-1432,Medicine,The University of Melbourne
+Lisa Sullivan,0000-0003-0726-7149,Medicine,Boston University
+Carlos Simón,0000-0003-0902-9531,Medicine,
+Yuk Ming Dennis Lo,0000-0001-8746-0293,Medicine,Chinese University of Hong Kong
+Jan Deprest,0000-0002-4920-945X,Medicine,Universitair Ziekenhuis Leuven
+Jie Qiao,0000-0003-2126-1376,Medicine,Nanjing Normal University
+Nicholas Wald,0000-0003-1676-5908,Medicine,University College London
+E. Gratacós,0000-0002-7405-7224,Medicine,Hospital Sant Joan de Déu Barcelona
+Yuan Wei,0000-0003-3387-7549,Medicine,Nanjing University
+Aris T. Papageorghiou,0000-0001-8143-2232,Medicine,John Radcliffe Hospital
+Martin H. Steinberg,0000-0001-8800-8020,Medicine,Boston Medical Center
+Sonja A. Rasmussen,0000-0002-0574-4928,Medicine,Johns Hopkins University
+Helen Dolk,0000-0001-6639-5904,Medicine,
+Eric Jauniaux,0000-0003-0925-7737,Medicine,University College London
+Asma Khalil,0000-0003-2802-7670,Medicine,Royal College of Obstetricians and Gynaecologists
+Peter Kaufmann,0000-0003-0459-2464,Medicine,Deutsches Forschungsnetz
+Allan Hackshaw,0000-0002-5570-5070,Medicine,Cancer Research UK
+Mark P. Johnson,0000-0002-5078-1410,Medicine,Acharya N. G. Ranga Agricultural University
+Žarko Alfirević,0000-0001-9276-518X,Medicine,University of Liverpool
+Laurent Salomon,0000-0003-0627-4347,Medicine,Hôpital Necker-Enfants Malades
+David Chitayat,0000-0003-1944-7294,Medicine,Mount Sinai Hospital
+Judith G. Hall,0000-0001-5062-491X,Medicine,
+Joe Leigh Simpson,0000-0002-5309-6881,Medicine,Florida International University
+David S. Johnson,0000-0002-9967-9812,Medicine,GigaGen (United States)
+Mary E. D’Alton,0000-0002-1457-6284,Medicine,NewYork–Presbyterian Hospital
+Kwok Leung,0000-0002-9289-6857,Medicine,Hong Kong Polytechnic University
+Maria Loane,0000-0002-1206-3637,Medicine,University of Ulster
+Alan W. Flake,0000-0003-4913-7588,Medicine,
+Bruce S. McEwen,0000-0002-5288-7892,Medicine,
+Fred H. Gage,0000-0002-0938-4106,Medicine,Salk Institute for Biological Studies
+Trevor W. Robbins,0000-0003-0642-5977,Medicine,University of Cambridge
+Solomon H. Snyder,0000-0002-6818-7022,Medicine,Johns Hopkins University
+Mark P. Mattson,0000-0002-9816-4155,Medicine,Johns Hopkins University
+Paul Greengard,0000-0002-4437-0893,Medicine,Rockefeller University
+Christof Koch,0000-0001-6482-8067,Medicine,Gere Foundation
+Nora D. Volkow,0000-0001-6668-0908,Medicine,National Institute on Alcohol Abuse and Alcoholism
+Eric J. Nestler,0000-0002-7905-2000,Medicine,Allen Institute for Brain Science
+Karl Deisseroth,0000-0001-9440-3967,Medicine,Howard Hughes Medical Institute
+György Buzsáki,0000-0002-3100-4800,Medicine,New York University
+Daniel R. Weinberger,0000-0003-2409-2969,Medicine,Johns Hopkins University
+Michael E. Greenberg,0000-0003-1380-2160,Medicine,Harvard University
+George F. Koob,0009-0002-9857-4493,Medicine,National Institutes of Health
+Terrence J. Sejnowski,0000-0002-0622-7391,Medicine,Salk Institute for Biological Studies
+Barry J. Everitt,0000-0003-4431-6536,Medicine,University of Cambridge
+Tomas Hökfelt,0000-0002-3587-0116,Medicine,Karolinska Institutet
+Kjell Fuxé,0000-0001-8491-4288,Medicine,Karolinska University Hospital
+Eric R. Kandel,0000-0001-7851-6902,Medicine,Kavli Institute for Theoretical Sciences
+Ben A. Barres,0000-0003-2905-4136,Medicine,Stanford University
+Shizuo Akira,0000-0001-7602-9617,Medicine,Osaka International University
+Richard A. Flavell,0000-0003-4461-0778,Medicine,Howard Hughes Medical Institute
+Alberto Mantovani,0000-0001-5578-236X,Medicine,Humanitas University
+Irving L. Weissman,0000-0002-9077-7467,Medicine,California Institute for Regenerative Medicine
+Drew M. Pardoll,0000-0001-6215-1013,Medicine,Bloomberg (United States)
+Laurence Zitvogel,0000-0003-1596-0998,Medicine,Inserm
+Charles A. Dinarello,0000-0002-5073-8316,Medicine,Radboud University Nijmegen
+Josef Penninger,0000-0002-8194-3777,Medicine,Helmholtz Centre for Infection Research
+Anthony S. Fauci,0000-0002-7865-7235,Medicine,Georgetown University
+Tak W. Mak,0000-0001-6766-861X,Medicine,University Health Network
+Dan R. Littman,0000-0002-2850-8688,Medicine,Howard Hughes Medical Institute
+Ruslan Medzhitov,0000-0002-7021-2012,Medicine,Howard Hughes Medical Institute
+Alessandro Sette,0000-0001-7013-2250,Medicine,La Jolla Institute for Immunology
+Jean‐Laurent Casanova,0000-0002-7782-4169,Medicine,Howard Hughes Medical Institute
+Mark J. Smyth,0000-0001-7098-7240,Medicine,
+Kiyoshi Takeda,0000-0002-1778-6332,Medicine,
+M. Shoji,0000-0003-0655-7347,Physics,National Institutes of Natural Sciences
+Е. А. Хазанов,0000-0001-5641-8025,Physics,Russian Academy of Sciences
+F. Paoletti,0000-0001-8898-1963,Physics,
+D. Fiorucci,0000-0002-5111-0336,Physics,"National Agency for New Technologies, Energy and Sustainable Economic Development"
+Edward Ott,0000-0002-9395-5062,Physics,"University of Maryland, College Park"
+Peter Politzer,0000-0002-8488-4282,Physics,University of New Orleans
+R. Fischer,0009-0000-6205-4731,Physics,Culham Science Centre
+Robert J. Taylor,0000-0002-6106-7722,Physics,University of Essex
+Henry C. Kapteyn,0000-0001-8386-6317,Physics,
+Margaret M. Murnane,0000-0001-9689-5432,Physics,Joint Institute for Laboratory Astrophysics
+S. W. Allen,0000-0003-0667-5941,Physics,SLAC National Accelerator Laboratory
+A. Pukhov,0000-0001-5043-960X,Physics,Forschungszentrum Jülich
+J. F. Drake,0000-0002-9150-1841,Physics,University of Central Florida
+O. L. Landen,0000-0002-1499-8217,Physics,Lawrence Livermore National Laboratory
+K. A. Marsh,0000-0003-0107-7803,Physics,California Institute of Technology
+P. K. Shukla,0000-0001-8188-4976,Physics,Shyam Shah Medical College
+Masayuki Yoshikawa,0000-0003-3106-3277,Physics,University of Tsukuba
+T. Kluge,0000-0003-4861-5584,Physics,Siemens (Germany)
+E. P. Hartouni,0000-0001-9869-4351,Physics,Lawrence Livermore National Laboratory
+S. H. Glenzer,0000-0001-9112-0558,Physics,SLAC National Accelerator Laboratory
+A. L’Huillier,0000-0002-1335-4022,Physics,Lund University
+T. C. Sangster,0000-0003-4040-2672,Physics,Energetics (United States)
+P. H. Diamond,0000-0003-3273-2604,Physics,Queen Mary University of London
+Makina Yabashi,0000-0002-2472-1684,Physics,SPring-8
+J. Fauré,0000-0003-0538-5774,Physics,Sophia Genetics (France)
+A. J. Mackinnon,0000-0002-4380-2906,Physics,Lawrence Livermore National Laboratory
+D. D. Meyerhofer,0000-0002-0904-1250,Physics,Los Alamos National Laboratory
+M. D. Perry,0000-0002-7535-5899,Physics,Myriad Genetics
+E. R. Priest,0000-0003-3621-6690,Physics,University of St Andrews
+R. Neu,0000-0002-6062-1955,Physics,Max Planck Institute for Plasma Physics
+R. J. Wallace,0000-0002-5129-3021,Physics,Centers for Disease Control and Prevention
+Gennady Shvets,0000-0001-8542-6753,Physics,Cornell University
+A. Loarte,0000-0001-9592-1117,Physics,ITER
+B. A. Remington,0000-0002-9369-7040,Physics,Lawrence Livermore National Laboratory
+Christoph H. Keitel,0000-0002-1984-1470,Physics,Max Planck Institute for Nuclear Physics
+K.H. Burrell,0000-0002-2639-1228,Physics,General Atomics (United States)
+S. Peter Gary,0000-0002-4655-2316,Physics,University of Memphis
+S. C. Wilks,0000-0002-7268-2683,Physics,Lawrence Livermore National Laboratory
+Wim Leemans,0000-0001-6573-8434,Physics,Deutsches Elektronen-Synchrotron DESY
+S. V. Bulanov,0000-0001-8305-0289,Physics,Extreme Light Infrastructure Beamlines
+K. Krushelnick,0000-0001-9116-9511,Physics,University of Michigan
+Richard D. Gill,0000-0001-5821-9986,Physics,
+C. F. Kennel,0000-0001-5997-7201,Physics,Scripps Institution of Oceanography
+John L. Johnson,0000-0003-1783-0476,Physics,RTI International
+A. Nelson,0000-0002-9612-1936,Physics,Columbia University
+Christian Dávid,0000-0002-2953-1265,Physics,Paul Scherrer Institute
+Y. Homma,0000-0002-9872-9697,Physics,National Institutes for Quantum Science and Technology
+T. E. Cowan,0000-0002-5845-000X,Physics,Helmholtz-Zentrum Dresden-Rossendorf
+A. Mysyrowicz,0000-0001-8129-1783,Physics,Centre National de la Recherche Scientifique
+Takehito Hayakawa,0000-0001-5286-8395,Physics,Ritsumeikan University
+W. B. Mori,0000-0002-6394-5082,Physics,"University of California, Los Angeles"
+R. J. Groebner,0000-0002-5643-564X,Physics,General Atomics (United States)
+M. Krůs,0000-0002-8595-3139,Physics,"Czech Academy of Sciences, Institute of Plasma Physics"
+S. C. Chapman,0000-0003-0053-1584,Physics,University of Warwick
+Norio Suzuki,0000-0001-6100-3350,Physics,Nagoya University Hospital
+L. L. Lao,0000-0003-1937-2675,Physics,General Atomics (United States)
+K. Mima,0000-0003-0714-8238,Physics,Extreme Light Infrastructure Beamlines
+V. Malka,0000-0002-0488-2587,Physics,Horia Hulubei National Institute for R and D in Physics and Nuclear Engineering
+M. Hesse,0000-0003-0377-9673,Physics,Ames Research Center
+J. C. Sprott,0000-0001-7014-3283,Physics,University of Wisconsin System
+Michael G.H. Bell,0000-0001-8137-065X,Physics,The University of Sydney
+Oliver Bunk,0000-0001-6563-4053,Physics,Paul Scherrer Institute
+K. Itoh,0000-0003-3873-4766,Physics,Chubu University
+Andrius Baltuška,0000-0002-5267-0626,Physics,TU Wien
+S. W. Haan,0000-0001-8404-5131,Physics,Lawrence Livermore National Laboratory
+Peixiang Lu,0000-0001-6993-8986,Physics,Hebei University of Technology
+R. Betti,0000-0001-8742-0304,Physics,Energetics (United States)
+A.W. Leonard,0000-0001-9356-1074,Physics,University of York
+E. J. Strait,0000-0001-9215-3757,Physics,General Atomics (United States)
+J. P. Knauer,0009-0009-9097-2885,Physics,Energetics (United States)
+P. Sprangle,0000-0001-8521-4128,Physics,United States Naval Research Laboratory
+J. R. Wilson,0000-0003-3627-1278,Physics,Universidad de Deusto
+R. E. Bell,0000-0001-9544-498X,Physics,Vanderbilt University Medical Center
+J. U. Brackbill,0000-0002-5029-2705,Physics,
+C. B. Schroeder,0000-0002-9610-0166,Physics,Lawrence Berkeley National Laboratory
+P. M. Celliers,0000-0001-7600-1227,Physics,Lawrence Livermore National Laboratory
+G.A.P. Cirrone,0000-0001-5733-9281,Physics,Istituto Nazionale di Fisica Nucleare
+M. Nisoli,0000-0003-2309-732X,Physics,Istituto di Fotonica e Nanotecnologie
+Hitoshi Nishimura,0000-0001-5068-1738,Physics,Tokushima University
+D. Neely,0000-0001-7709-4074,Physics,
+S. Brezinsek,0000-0002-7213-3326,Physics,Forschungszentrum Jülich
+Christian Spielmann,0000-0002-5223-4170,Physics,Helmholtz Institute Jena
+B. Lipschultz,0000-0001-5968-3684,Physics,University of York
+Vladislav S. Yakovlev,0000-0002-0648-9375,Physics,Max Planck Institute of Quantum Optics
+B. LaBombard,0000-0002-7841-9261,Physics,Fusion (United States)
+G. Krämer,0000-0001-5105-8139,Physics,Princeton Plasma Physics Laboratory
+Katsumi Midorikawa,0000-0002-0588-519X,Physics,RIKEN Center for Advanced Photonics
+P.C. Stangeby,0000-0002-3511-2286,Physics,University of Toronto
+O. Sauter,0000-0002-0099-6675,Physics,École Polytechnique Fédérale de Lausanne
+N. J. Fisch,0000-0002-0301-7380,Physics,Princeton University
+R. Budny,0000-0001-5472-3771,Physics,Princeton Plasma Physics Laboratory
+M. Yokoyama,0000-0001-8856-1483,Physics,National Institutes of Natural Sciences
+R. B. White,0000-0002-4239-2685,Physics,Princeton University
+Thomas Brabec,0000-0002-0784-0614,Physics,
+W. Becker,0000-0001-8939-0372,Physics,Becker Technologies (Germany)
+A. Kallenbach,0000-0003-0538-2493,Physics,Max Planck Institute for Plasma Physics
+C. Stöeckl,0000-0001-5375-5800,Physics,Energetics (United States)
+P. Beiersdörfer,0000-0003-0127-599X,Physics,Lawrence Livermore National Laboratory
+K. Ida,0000-0002-0585-4561,Physics,National Institute for Fusion Science
+G. G. Paulus,0000-0002-8343-8811,Physics,Helmholtz Institute Jena
+M. A. Shay,0000-0003-1861-4767,Physics,University of Delaware
+V. T. Tikhonchuk,0000-0001-7532-5879,Physics,Centre National de la Recherche Scientifique
+A. Couairon,0000-0003-1883-0208,Physics,Institut Polytechnique de Paris
+X. Garbet,0000-0001-5730-1259,Physics,Nanyang Technological University
+M. Goossens,0000-0002-7830-7147,Physics,KU Leuven
+W. W. Heidbrink,0000-0002-6942-8043,Physics,"University of California, Irvine"
+P.B. Snyder,0000-0002-0613-4232,Physics,Commonwealth Fund
+D. von der Linde,0000-0001-5618-3879,Physics,Indiana Hand to Shoulder Center
+J. Birn,0000-0002-1496-4076,Physics,Space Science Institute
+H. Zohm,0000-0002-8870-7806,Physics,Max Planck Institute for Plasma Physics
+Z. M. Sheng,0000-0002-8823-9993,Physics,Shanghai Jiao Tong University
+A. Herrmann,0000-0003-3872-2407,Physics,Graz University of Technology
+H. R. Wilson,0000-0003-3333-7470,Physics,Oak Ridge National Laboratory
+Hadley Wickham,0000-0003-4757-117X,Physics,Posit Science (United States)
+Jake Vanderplas,0000-0002-9623-3401,Physics,Google (United States)
+Fabián Pedregosa,0000-0003-4025-3953,Physics,Google (Switzerland)
+William T. Vetterling,0009-0009-9476-3319,Physics,Mitsubishi Electric (United States)
+Carole Goble,0000-0003-1219-2137,Physics,University of Manchester
+Susanna‐Assunta Sansone,0000-0001-5306-5690,Physics,University of Oxford
+Rachel Woodbrook,0000-0002-4548-944X,Physics,
+Stéfan van der Walt,0000-0001-9276-1891,Physics,"University of California, Berkeley"
+Zachary DeVito,0009-0002-8863-1503,Physics,
+Paul Groth,0000-0003-0183-6910,Physics,RELX Group (Netherlands)
+Romain François,0000-0002-2444-4226,Physics,
+Rob Hooft,0000-0001-6825-9439,Physics,University Medical Center Utrecht
+Rob Knight,0000-0002-0975-9019,Chemistry,UC San Diego Health System
+Richard Durbin,0000-0002-9130-1006,Chemistry,University of Cambridge
+Peer Bork,0000-0002-2627-833X,Chemistry,European Bioinformatics Institute
+Steven L. Salzberg,0000-0002-8859-7432,Chemistry,Johns Hopkins University
+Jun Wang,0009-0008-8475-2934,Chemistry,Zhejiang International Studies University
+Sudhir Kumar,0000-0002-9918-8212,Chemistry,World Healthal Trust
+Richard A. Gibbs,0000-0002-1356-5698,Chemistry,Baylor College of Medicine
+Koichiro Tamura,0000-0001-7189-5399,Chemistry,Tokyo Metropolitan University
+Heng Li,0000-0003-4874-2874,Chemistry,Xijing Hospital
+Mark Gerstein,0000-0002-9746-3719,Chemistry,Yale University
+Richard K. Wilson,0000-0002-1992-1358,Chemistry,Nationwide Children's Hospital
+David Haussler,0000-0003-1533-4575,Chemistry,"University of California, Santa Cruz"
+Huanming Yang,0000-0002-0858-3410,Chemistry,BGI Group (China)
+Eugene V. Koonin,0000-0003-3943-8299,Chemistry,United States National Library of Medicine
+Steven J.M. Jones,0000-0003-3394-2208,Chemistry,
+Paul Flicek,0000-0002-3897-7955,Chemistry,European Bioinformatics Institute
+Stephen F. Altschul,0000-0003-2120-9631,Chemistry,National Institutes of Health
+Evan E. Eichler,0000-0002-8246-4014,Chemistry,Howard Hughes Medical Institute
+Ruth E. Ley,0000-0002-9087-1672,Chemistry,Max Planck Institute for Developmental Biology
+Ewan Birney,0000-0001-8314-8497,Chemistry,Bioinformatics Institute
+Curtis Huttenhower,0000-0002-1110-0096,Chemistry,Harvard University
+Minoru Kanehisa,0000-0001-6123-540X,Chemistry,Kyoto University
+Julie Thompson,0000-0003-4893-3478,Chemistry,Université de Strasbourg
+Peter J. Turnbaugh,0000-0002-0888-2875,Chemistry,"University of California, San Francisco"
+Gábor Marth,0000-0003-0222-1694,Chemistry,University of Utah
+Donna M. Muzny,0000-0002-3055-0359,Chemistry,Baylor College of Medicine
+Willem M. de Vos,0000-0002-0273-3166,Chemistry,University of Helsinki
+Simon Anders,0000-0003-4868-1805,Chemistry,Heidelberg University
+J. Gregory Caporaso,0000-0002-8865-1670,Chemistry,Northern Arizona University
+Catherine Lozupone,0000-0003-4786-7202,Chemistry,Colorado School of Public Health
+Eric Banks,0000-0001-9615-2372,Chemistry,Broad Institute
+Andrew Rambaut,0000-0003-4337-3707,Chemistry,University of Edinburgh
+George M. Weinstock,0000-0002-2997-4592,Chemistry,Jackson Laboratory
+Charles Lee,0000-0001-7317-6662,Chemistry,Jackson Laboratory
+Robert A. Holt,0000-0002-7259-1247,Chemistry,University of British Columbia
+Desmond G. Higgins,0000-0002-3952-3285,Chemistry,University College Dublin
+David J. Lipman,0009-0002-3443-2023,Chemistry,Johns Hopkins University
+Søren Brunak,0000-0003-0316-5866,Chemistry,Novo Nordisk Foundation
+Chad Nusbaum,0000-0002-2777-1708,Chemistry,
+Alex Bateman,0000-0002-6982-4660,Chemistry,European Bioinformatics Institute
+George M. Church,0000-0003-3535-2076,Chemistry,Harvard University Press
+Toby J. Gibson,0000-0003-0657-5166,Chemistry,European Molecular Biology Laboratory
+Sean R. Eddy,0000-0001-6676-4706,Chemistry,Harvard University
+T Gingeras,0000-0001-9106-3573,Chemistry,Cold Spring Harbor Laboratory
+Michael I. Love,0000-0001-8401-0545,Chemistry,University of North Carolina at Chapel Hill
+Dan Knights,0000-0002-8205-2511,Chemistry,University of Minnesota System
+Robert E. Handsaker,0000-0002-3128-3547,Chemistry,Broad Institute
+Gil McVean,0000-0002-5012-4162,Chemistry,University of Oxford
+Philip Hugenholtz,0000-0001-5386-7925,Chemistry,The University of Queensland
+David A. Wheeler,0000-0002-9056-6299,Chemistry,
+Ben Langmead,0000-0003-2437-1976,Chemistry,Johns Hopkins University
+Xun Xu,0000-0002-5338-5173,Chemistry,BGI Group (China)
+Christian von Mering,0000-0001-7734-9102,Chemistry,SIB Swiss Institute of Bioinformatics
+Roderic Guigó,0000-0002-5738-4477,Chemistry,Universitat Pompeu Fabra
+Carlos D. Bustamante,0000-0002-4187-7920,Chemistry,United States Department of Commerce
+Manolis Kellis,0000-0001-7113-9630,Chemistry,Broad Institute
+Jay Shendure,0000-0002-1516-1865,Chemistry,Howard Hughes Medical Institute
+Yingrui Li,0000-0001-6630-1277,Chemistry,Zhengzhou University
+Lars Juhl Jensen,0000-0001-7885-715X,Chemistry,University of Copenhagen
+J. Craig Venter,0000-0002-7086-765X,Chemistry,J. Craig Venter Institute
+Sarah Hunt,0000-0002-8350-1235,Chemistry,European Bioinformatics Institute
+Susan Holmes,0000-0002-2208-8168,Chemistry,Palo Alto University
+Jan O. Korbel,0000-0002-2798-3794,Chemistry,European Molecular Biology Organization
+Nicola Segata,0000-0002-1583-5794,Chemistry,University of Trento
+John P. Huelsenbeck,0000-0002-3050-9997,Chemistry,"University of California, Berkeley"
+Tim Hubbard,0000-0002-1767-9318,Chemistry,King's College London
+Jeroen Raes,0000-0002-1337-041X,Chemistry,Rega Institute for Medical Research
+Chris P. Ponting,0000-0003-0202-7816,Chemistry,Edinburgh Cancer Research
+Bruce W. Birren,0000-0001-6971-945X,Chemistry,Broad Institute
+Prescott L. Deininger,0000-0002-1067-3028,Chemistry,Tulane University
+Daniel McDonald,0000-0003-0876-9060,Chemistry,UC San Diego Health System
+Marc A. Suchard,0000-0001-9818-479X,Chemistry,United States Department of Veterans Affairs
+Stephen T. Sherry,0000-0002-7982-076X,Chemistry,National Institutes of Health
+Roald Hoffmann,0000-0001-5369-6046,Chemistry,Cornell University
+Leo Radom,0000-0001-8249-1314,Chemistry,University of Sydney
+Herbert Mayr,0000-0003-0768-5199,Chemistry,Ludwig-Maximilians-Universität München
+Johann Gasteiger,0000-0003-2036-7144,Chemistry,
+Jack D. Dunitz,0000-0001-5411-2452,Chemistry,
+Pedro Alexandrino Fernandes,0000-0003-2748-4722,Chemistry,Universidade do Porto
+Guy C. Lloyd‐Jones,0000-0003-2128-6864,Chemistry,Brewster Place
+Douglas M. Templeton,0000-0003-0693-662X,Chemistry,University of Toronto
+John W. Moore,0000-0001-7652-0668,Chemistry,
+J. D. Bernal,0000-0003-0104-8439,Chemistry,
+Michelle Francl,0000-0003-1940-1560,Chemistry,Bryn Mawr College
+Silvia E. Braslavsky,0000-0002-2796-8586,Chemistry,Max Planck Institute for Chemical Energy Conversion
+Monica Nordberg,0000-0002-5315-1633,Chemistry,Karolinska Institutet
+Paul G. Mezey,0000-0001-7245-5141,Chemistry,Kyoto University
+Philippe C. Hiberty,0000-0002-7081-4654,Chemistry,Université Paris-Sud
+Linda Wang﻿,0000-0001-6308-2769,Chemistry,Xi'an University of Science and Technology
+István Hargittai,0000-0003-3638-7844,Chemistry,
+Ian H. Williams,0000-0001-9264-0221,Chemistry,University of Bath
+Pierre Laszlo,0000-0003-4334-771X,Chemistry,École Polytechnique
+Thomas T. Tidwell,0000-0002-3216-7468,Chemistry,University of Toronto
+Hiroshi Fujimoto,0000-0002-4987-0715,Chemistry,Chiba University
+K. Ziegler,0000-0001-8588-1078,Chemistry,
+R.H. Oppermann,0000-0002-3722-3000,Chemistry,Universidade Regional de Blumenau
+Charles L. Perrin,0000-0001-5732-5330,Chemistry,Université Paris-Saclay
+Omar M. Yaghi,0000-0002-5611-3325,Chemistry,"University of California, Berkeley"
+Stefan Grimme,0000-0002-5844-4371,Chemistry,University of Bonn
+Mercouri G. Kanatzidis,0000-0003-2037-4168,Chemistry,Northwestern University
+Chad A. Mirkin,0000-0002-6634-7627,Chemistry,Northwestern University
+Abdullah M. Asiri,0000-0001-7905-3209,Chemistry,Alfaisal University
+Hong‐Cai Zhou,0000-0002-9029-3788,Chemistry,Mitchell Institute
+Omar K. Farha,0000-0002-9904-9845,Chemistry,Northwestern University
+Joseph T. Hupp,0000-0003-3982-9812,Chemistry,Northwestern University
+Frank Neese,0000-0003-4691-0547,Chemistry,Max Planck Society
+Jeffrey R. Long,0000-0002-5324-1321,Chemistry,Lawrence Berkeley National Laboratory
+Ulrich S. Schubert,0000-0003-4978-4670,Chemistry,Helmholtz Institute Jena
+Banglin Chen,0000-0001-8707-8115,Chemistry,Fujian Normal University
+Susumu Kitagawa,0000-0001-6956-9543,Chemistry,Kyoto University
+Mohamed Eddaoudi,0000-0003-1916-9837,Chemistry,King Abdullah University of Science and Technology
+Nam‐Gyu Park,0000-0003-2368-6300,Chemistry,Sungkyunkwan University
+Horst Hahn,0000-0001-9901-3861,Chemistry,Karlsruhe Institute of Technology
+A. Yamamoto,0000-0002-5351-5169,Chemistry,High Energy Accelerator Research Organization
+H. Burkhardt,0000-0003-2711-1141,Chemistry,University of Freiburg
+Shimeng Yu,0000-0002-0068-3652,Chemistry,Georgia Institute of Technology
+Zhou Li,0000-0002-9952-7296,Chemistry,Guangzhou University of Chinese Medicine
+M. A. Lieberman,0000-0002-2841-2870,Chemistry,"University of California, Berkeley"
+P. Mazur,0000-0003-0025-9410,Chemistry,Uniwersytet Komisji Edukacji Narodowej w Krakowie
+M. Okamura,0000-0002-5552-1706,Chemistry,Brookhaven National Laboratory
+M. Syphers,0000-0002-7062-7429,Chemistry,Northern Illinois University
+M. Pabst,0000-0002-3412-6846,Chemistry,BMW (Germany)
+S. Farinon,0000-0002-6487-2137,Chemistry,"Istituto Nazionale di Fisica Nucleare, Sezione di Genova"
+Ryszard S. Romaniuk,0000-0002-5710-4041,Chemistry,Warsaw University of Technology
+Andrew Holmes,0000-0002-7406-4387,Chemistry,The University of Sydney
+Mustafa Z Younis,0000-0001-8448-808X,Economics,Universiti Putra Malaysia
+Jeffrey D. Sachs,0000-0002-6451-2502,Economics,
+Jeong Yeon Lee,0000-0002-2622-7831,Economics,Namseoul University
+Rohollah Kalhor,0000-0002-6146-8761,Economics,Qazvin University of Medical Sciences
+Donald L. Patrick,0000-0003-0756-0492,Economics,University of Washington
+John E. Ware,0000-0002-0744-2149,Economics,University of Massachusetts Chan Medical School
+István Csabai,0000-0001-9232-9898,Economics,Eötvös Loránd University
+Sharon‐Lise T. Normand,0000-0001-7027-4769,Economics,Harvard University
+Satar Rezaei,0000-0002-6194-6057,Economics,Kermanshah University of Medical Sciences
+John Brazier,0000-0001-8645-4780,Economics,Institut de la Vision
+Daniel McFadden,0000-0003-3183-7922,Economics,Queen's University Belfast
+Sergio I. Prada,0000-0001-7986-0959,Economics,University of Caldas
+Andrew Briggs,0000-0002-0777-1997,Economics,University of Oxford
+Mohsen Bayati,0000-0002-9118-5447,Economics,Shiraz University of Medical Sciences
+E. John Orav,0000-0002-8886-7252,Economics,Harvard University
+Leila Doshmangir,0000-0001-5197-8437,Economics,Tabriz University of Medical Sciences
+Joseph P. Newhouse,0000-0001-5837-3203,Economics,Harvard University
+Robert L Kane,0009-0005-8505-6218,Economics,Medical University of South Carolina
+Kathleen N Lohr,0000-0002-3825-0713,Economics,University of North Carolina at Chapel Hill
+David Cutler,0000-0002-4949-8917,Economics,National Bureau of Economic Research
+Ali Kazemi Karyani,0000-0002-4448-9317,Economics,Kermanshah University of Medical Sciences
+Naihua Duan,0000-0001-9411-2924,Economics,Columbia University
+Elías Mossialos,0000-0001-8664-9297,Economics,Imperial College London
+Bhageerathy Reshmi,0000-0001-9631-6218,Economics,Manipal Academy of Higher Education
+Vahid Yazdi‐Feyzabadi,0000-0002-8009-470X,Economics,Kerman University of Medical Sciences
+Simeon Djankov,0000-0002-0822-6456,Economics,London School of Economics and Political Science
+Mark Sculpher,0000-0003-3746-9913,Economics,University of York
+Telma Zahirian Moghadam,0000-0003-1290-4202,Economics,Ardabil University of Medical Sciences
+Nicholas Steel,0000-0003-1528-140X,Economics,Griffith University
+Mark A. Hall,0000-0001-6277-144X,Economics,Pacific Northwest National Laboratory
+Richard Zeckhauser,0000-0002-4222-9546,Economics,Harvard University Press
+Mark V. Pauly,0000-0003-4957-4825,Economics,École Polytechnique Fédérale de Lausanne
+Anthony J. Venables,0000-0003-0251-7479,Economics,University of Oxford
+Robert H. Brook,0000-0001-7648-3764,Economics,
+K. Robin Yabroff,0000-0003-0644-5572,Economics,American Cancer Society
+Carl Shapiro,0000-0003-4430-3655,Economics,"University of California, Berkeley"
+John Haltiwanger,0000-0001-6164-6938,Economics,"University of Maryland, College Park"
+Amiram Gafni,0000-0001-8279-8172,Economics,The Centre for Health (New Zealand)
+Richard Baldwin,0000-0002-1965-4157,Economics,University of Geneva
+Shawna Grosskopf,0000-0001-6939-2709,Economics,Oregon State University
+Adam Wagstaff,0000-0003-4442-5070,Economics,Rapport (United States)
+Kevin A. Schulman,0000-0002-8926-5085,Economics,Chubu University
+Stavros Petrou,0000-0003-3121-6050,Economics,University of Oxford
+Jayendra Sharma,0000-0001-6500-8546,Economics,Maastricht University
+Robert C. Feenstra,0000-0003-3433-7763,Economics,"University of California, Davis"
+Alastair Gray,0000-0003-0239-7278,Economics,University of Oxford
+Robert M. Kaplan,0000-0003-4837-5330,Economics,Albert Einstein College of Medicine
+Steven H. Woolf,0000-0001-9384-033X,Economics,Virginia Commonwealth University
+Joseph S. Ross,0000-0002-9218-3320,Economics,Yale University
+Andrew K. Rose,0000-0003-1100-1212,Economics,
+Gordon Hanson,0000-0001-5798-140X,Economics,International Monetary Fund
+Jonathan Gruber,0000-0003-0379-710X,Economics,National Bureau of Economic Research
+Ricardo Hausmann,0000-0001-9284-5745,Economics,Santa Fe Institute
+Sherman Robinson,0000-0002-5478-9372,Economics,Peterson Institute for International Economics
+Richard Lilford,0000-0002-0634-984X,Economics,University of Birmingham
+David A. Asch,0000-0002-7970-286X,Economics,University of Pennsylvania
+Peter A. Ubel,0000-0001-8218-519X,Economics,Duke University
+W. Kip Viscusi,0000-0002-7931-7689,Economics,Florida State University
+Avinash Dixit,0000-0002-8929-7503,Economics,Stockholm School of Economics
+César A. Hidalgo,0000-0002-6977-9492,Economics,Corvinus University of Budapest
+Peter J. Neumann,0000-0003-1226-4073,Economics,Tufts University
+Jong‐Wha Lee,0000-0002-3152-4961,Economics,Korea Research Institute of Standards and Science
+Peter Smith,0000-0003-0058-7588,Economics,University of Colorado Anschutz Medical Campus
+Arnold M. Epstein,0000-0003-2374-0311,Economics,Brigham and Women's Hospital
+Paul Kind,0000-0003-2377-1652,Economics,University of Leeds
+Kevin D. Frick,0000-0002-0178-5319,Economics,Johns Hopkins University
+Mohammad Khammarnia,0000-0002-3759-5875,Economics,Zahedan University of Medical Sciences
+Gerard F. Anderson,0000-0003-1845-1523,Economics,Johns Hopkins University
+Peter Groenewegen,0000-0003-2127-8442,Economics,Utrecht University
+Stephen B. Soumerai,0000-0001-6811-2496,Economics,Harvard Pilgrim Health Care
+Rachel Griffith,0000-0002-8616-5820,Economics,University of Southampton
+Paul Dolan,0000-0001-6180-2849,Economics,London School of Economics and Political Science
+Ernst R. Berndt,0000-0002-6388-0768,Economics,
+Stephen Morris,0000-0002-5828-3563,Economics,Guy's and St Thomas' NHS Foundation Trust
+Péter Gaál,0000-0002-6815-9021,Economics,Semmelweis University
+Michael T. Halpern,0000-0001-8514-6313,Economics,Texas Department of State Health Services
+James E. Anderson,0000-0003-0878-5271,Economics,Ford Motor Company (United States)
+Allan S. Detsky,0000-0003-2772-3121,Economics,Mount Sinai Hospital
+Jonathan Skinner,0000-0002-4760-9396,Economics,Dartmouth College
+Sheldon Greenfield,0000-0003-4628-1998,Economics,"University of California, Irvine"
+Lisa I. Iezzoni,0000-0002-1416-5039,Economics,Harvard University
+Efat Mohamadi,0000-0003-2297-7990,Economics,Iranian Institute for Health Sciences Research
+Dennis Ross‐Degnan,0000-0002-0066-1242,Economics,Harvard Pilgrim Health Care
+David Evans,0000-0003-1674-8489,Economics,Commonwealth Scientific and Industrial Research Organisation
+Elliott S. Fisher,0000-0002-9571-4879,Economics,Dartmouth College
+Chien‐Wen Tseng,0000-0001-7162-2550,Economics,Pacific Health Research and Education Institute
+Thomas W. Hertel,0000-0002-7179-7630,Economics,Purdue University West Lafayette
+Anne Mills,0000-0001-9863-9950,Economics,University of London
+Elizabeth A. McGlynn,0000-0002-4944-2518,Economics,Kaiser Permanente
+Pierre Bourdıeu,0000-0001-6386-4269,Economics,
+Henri Lefebvre,0009-0004-2914-9850,Economics,
+Achille Mbembé,0000-0003-0006-3194,Economics,University of the Witwatersrand
+Anna Tsing,0000-0002-0411-959X,Economics,"University of California, Santa Cruz"
+Laurent Thévenot,0000-0002-4317-0419,Economics,
+Isabelle Stengers,0000-0001-7723-6140,Economics,
+Michel Lagarde,0000-0003-0175-9062,Economics,Université Claude Bernard Lyon 1
+Claude S. Fischer,0000-0002-4665-5630,Economics,"University of California, Berkeley"
+Jean Lambert,0000-0001-9159-6126,Economics,Institut Français
+Emmanuel Lazega,0000-0001-8844-6426,Economics,Centre National de la Recherche Scientifique
+Rosi Braidotti,0000-0002-5922-2324,Economics,Utrecht University
+Yves Gingras,0000-0002-4729-1269,Economics,Université du Québec à Montréal
+Sébastiên Roux,0000-0002-3676-0517,Economics,
+François Morin,0000-0002-1582-2934,Economics,Centre Hospitalier Universitaire d'Angers
+Robert Boyer,0000-0003-0425-7439,Economics,
+Eduardo Viveiros de Castro,0000-0003-4902-0574,Economics,
+Catherine Dominguès,0000-0002-0362-6805,Economics,Université Gustave Eiffel
+Isabelle Thomas,0000-0003-3386-2427,Economics,UCLouvain
+Frank Moulaert,0000-0001-8924-6928,Economics,Manchester University
+Antonio Negri,0000-0002-8662-4302,Economics,Istituto Tumori Bari
+Philippe Van Parijs,0000-0003-3348-1317,Economics,UCLouvain
+Ève Chiapello,0000-0002-3323-9961,Economics,Centre de Recherche sur les Liens Sociaux
+Alain Touraine,0000-0001-7330-2163,Economics,Universidad de Santiago de Chile
+Madeleine Akrich,0000-0002-2259-1601,Economics,
+François Bousquet,0000-0002-4552-3724,Economics,
+Benoît Rihoux,0000-0001-9836-5056,Economics,UCLouvain
+Richard Nadeau,0000-0003-4426-3331,Economics,
+Peter Dahlgren,0000-0002-3509-3329,Economics,
+Russell S. Kirby,0000-0002-3489-401X,Economics,Champlain College
+B. Thilaganathan,0000-0002-5531-4301,Economics,Royal College of Obstetricians and Gynaecologists
+A. Dessa Sadovnick,0000-0003-2987-2008,Economics,Brigham and Women's Hospital
+Tze Kin Lau,0000-0002-0242-1410,Economics,Georgia Institute of Technology
+Diana W. Bianchi,0000-0001-9270-5267,Economics,National Human Genome Research Institute
+Zi‐Jiang Chen,0000-0001-6637-6631,Economics,Ministry of Education of the People's Republic of China
+S. Munné,0000-0002-1088-5565,Economics,American Orchid Society
+Michael R. DeBaun,0000-0002-0574-1604,Economics,Meharry Medical College

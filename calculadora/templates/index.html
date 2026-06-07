@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>KANON-Index Calculator</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<!-- ── Top Bar ─────────────────────────────────────────────────────── -->
+<div class="top-bar">
+    <a href="https://www.ifrj.edu.br" target="_blank">
+        <img src="{{ url_for('static', filename='img/logo_ifrj.png') }}" alt="IFRJ" class="logo-ifrj"
+             onerror="this.style.display='none'">
+    </a>
+    <div class="text-container">
+        <span>KANON-Index Calculator</span><br>
+        <span style="font-size:0.85rem; font-weight:normal; opacity:0.8;">
+            Avaliador de Contribuição Científica Individual
+        </span>
+    </div>
+    <div class="top-right-group">
+        <a href="../" class="ig-link-green">
+            <i class="fas fa-home"></i> Voltar ao LGM
+        </a>
+    </div>
+</div>
+
+<!-- ── Main Content ───────────────────────────────────────────────── -->
+<div class="main">
+    <div class="main-content">
+        <div class="panel">
+
+            <h1><i class="fas fa-microscope"></i> KANON-Index</h1>
+            <p class="update-info">
+                KANON = wC&times;C + wA&times;A + wS&times;S + wJ&times;J &nbsp;&middot;&nbsp; S = &beta;&middot;S<sub>text</sub> + (1&minus;&beta;)&middot;S<sub>concepts</sub>
+            </p>
+
+            <!-- ── Step 1: Select Field ─────────────────────────────── -->
+            <div class="step-section" id="step1">
+                <h3><span class="step-num">1</span> Selecione a Área de Pesquisa</h3>
+                <div class="field-buttons">
+                    <button class="field-btn" data-field="chemistry" onclick="selectField('chemistry')">
+                        <i class="fas fa-flask"></i>
+                        <span>Química</span>
+                    </button>
+                    <button class="field-btn" data-field="medicine" onclick="selectField('medicine')">
+                        <i class="fas fa-heart-pulse"></i>
+                        <span>Medicina</span>
+                    </button>
+                    <button class="field-btn" data-field="physics" onclick="selectField('physics')">
+                        <i class="fas fa-atom"></i>
+                        <span>Física</span>
+                    </button>
+                    <button class="field-btn" data-field="economics" onclick="selectField('economics')">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Economia</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ── Step 2: Configure Weights ─────────────────────────── -->
+            <div class="step-section" id="step2" style="display:none;">
+                <h3><span class="step-num">2</span> Pesos do Índice KANON</h3>
+
+                <div class="weight-toggle">
+                    <label class="toggle-label">
+                        <input type="checkbox" id="customWeightsToggle" onchange="toggleCustomWeights()">
+                        <span class="toggle-slider"></span>
+                        <span class="toggle-text">Personalizar pesos</span>
+                    </label>
+                    <button class="reset-default-btn" id="resetWeightsBtn" onclick="resetWeightsDefault()" style="display:none;">
+                        <i class="fas fa-undo"></i> Restaurar padrão
+                    </button>
+                </div>
+
+                <div class="weights-container" id="weightsContainer">
+                    <div class="weight-row">
+                        <label>C - Citações</label>
+                        <input type="number" id="w_citations" step="0.01" min="0" max="1" class="weight-input" disabled>
+                        <span class="weight-bar"><span class="weight-fill" id="bar_citations"></span></span>
+                    </div>
+                    <div class="weight-row">
+                        <label>A - Autoria</label>
+                        <input type="number" id="w_authorship" step="0.01" min="0" max="1" class="weight-input" disabled>
+                        <span class="weight-bar"><span class="weight-fill" id="bar_authorship"></span></span>
+                    </div>
+                    <div class="weight-row">
+                        <label>S - Sofisticação</label>
+                        <input type="number" id="w_sophistication" step="0.01" min="0" max="1" class="weight-input" disabled>
+                        <span class="weight-bar"><span class="weight-fill" id="bar_sophistication"></span></span>
+                    </div>
+                    <div class="weight-row">
+                        <label>J - Journal</label>
+                        <input type="number" id="w_journal" step="0.01" min="0" max="1" class="weight-input" disabled>
+                        <span class="weight-bar"><span class="weight-fill" id="bar_journal"></span></span>
+                    </div>
+                    <div class="weight-total">
+                        Soma: <strong id="weightSum">1.00</strong>
+                        <span id="weightWarning" class="weight-warning" style="display:none;">
+                            <i class="fas fa-exclamation-triangle"></i> A soma deve ser 1.00
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── Step 3: Search Researcher ─────────────────────────── -->
+            <div class="step-section" id="step3" style="display:none;">
+                <h3><span class="step-num">3</span> Buscar Pesquisador</h3>
+
+                <div class="search-type-toggle">
+                    <button class="search-type-btn active" data-type="name" onclick="setSearchType('name')">
+                        <i class="fas fa-user"></i> Por Nome
+                    </button>
+                    <button class="search-type-btn" data-type="orcid" onclick="setSearchType('orcid')">
+                        <i class="fab fa-orcid"></i> Por ORCID
+                    </button>
+                </div>
+
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Digite o nome do pesquisador..."
+                           onkeydown="if(event.key==='Enter') doSearch()">
+                    <button class="search-btn" onclick="doSearch()" id="searchBtn">
+                        <i class="fas fa-search"></i> Buscar
+                    </button>
+                </div>
+                <small class="muted" id="searchHint">
+                    Dica: Use ORCID para identificação exata do pesquisador
+                </small>
+
+                <!-- Search Results / Validation -->
+                <div id="searchResults" style="display:none;">
+                    <h3 style="margin-top:16px;">
+                        <i class="fas fa-users"></i> Confirme o pesquisador correto:
+                    </h3>
+                    <div id="candidatesList" class="candidates-list"></div>
+                </div>
+
+                <!-- Error -->
+                <div id="searchError" class="error-box" style="display:none;">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <span id="searchErrorMsg"></span>
+                </div>
+            </div>
+
+            <!-- ── Step 4: Calculation / Progress ────────────────────── -->
+            <div class="step-section" id="step4" style="display:none;">
+                <h3><span class="step-num">4</span> Calculando KANON-Index...</h3>
+
+                <div class="progress-container">
+                    <div class="progress-info">
+                        <span id="progressText">Iniciando cálculo...</span>
+                        <span id="progressPercent">0%</span>
+                    </div>
+                    <div class="progress-bar-outer">
+                        <div class="progress-bar-inner" id="progressBar"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── Step 5: Results ────────────────────────────────────── -->
+            <div class="step-section" id="step5" style="display:none;">
+                <h3><span class="step-num"><i class="fas fa-check"></i></span> Resultado</h3>
+
+                <div class="result-header">
+                    <div class="result-name" id="resultName"></div>
+                    <div class="result-inst" id="resultInst"></div>
+                    <div class="result-orcid" id="resultOrcid"></div>
+                </div>
+
+                <div class="kanon-badge" id="kanonBadge">
+                    <div class="kanon-label">KANON-Index</div>
+                    <div class="kanon-value" id="kanonValue">--</div>
+                    <div class="kanon-field" id="kanonField"></div>
+                </div>
+
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-icon"><i class="fas fa-square-h"></i></div>
+                        <div class="metric-val" id="mHindex">--</div>
+                        <div class="metric-lbl">h-index</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon"><i class="fas fa-quote-right"></i></div>
+                        <div class="metric-val" id="mCitations">--</div>
+                        <div class="metric-lbl">Citações</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon"><i class="fas fa-file-lines"></i></div>
+                        <div class="metric-val" id="mPapers">--</div>
+                        <div class="metric-lbl">Artigos (10 anos)</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon"><i class="fas fa-users"></i></div>
+                        <div class="metric-val" id="mAuthors">--</div>
+                        <div class="metric-lbl">Autores/artigo</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon"><i class="fas fa-star"></i></div>
+                        <div class="metric-val" id="mFirstAuth">--</div>
+                        <div class="metric-lbl">1&ordm; Autor (%)</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon"><i class="fas fa-gears"></i></div>
+                        <div class="metric-val" id="mComplexity">--</div>
+                        <div class="metric-lbl">Complexidade</div>
+                    </div>
+                </div>
+
+                <!-- Component Breakdown -->
+                <div class="components-section">
+                    <h3>Componentes do KANON</h3>
+                    <div class="component-bars">
+                        <div class="comp-row">
+                            <span class="comp-label">C - Citações</span>
+                            <span class="comp-bar"><span class="comp-fill comp-c" id="compC"></span></span>
+                            <span class="comp-val" id="compCval">0</span>
+                        </div>
+                        <div class="comp-row">
+                            <span class="comp-label">A - Autoria</span>
+                            <span class="comp-bar"><span class="comp-fill comp-a" id="compA"></span></span>
+                            <span class="comp-val" id="compAval">0</span>
+                        </div>
+                        <div class="comp-row">
+                            <span class="comp-label">S - Sofisticação</span>
+                            <span class="comp-bar"><span class="comp-fill comp-m" id="compS"></span></span>
+                            <span class="comp-val" id="compSval">0</span>
+                        </div>
+                        <div class="comp-row">
+                            <span class="comp-label">J - Journal</span>
+                            <span class="comp-bar"><span class="comp-fill comp-j" id="compJ"></span></span>
+                            <span class="comp-val" id="compJval">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-actions">
+                    <button class="btn-action btn-new" onclick="resetAll()">
+                        <i class="fas fa-arrow-rotate-right"></i> Nova Busca
+                    </button>
+                    <button class="btn-action btn-download" onclick="downloadResult()">
+                        <i class="fas fa-download"></i> Baixar JSON
+                    </button>
+                </div>
+
+                <p class="muted" style="text-align:center; margin-top:12px; font-size:0.85rem;">
+                    Calculado em: <span id="calcTime">--</span>
+                </p>
+            </div>
+
+            <!-- ── About Section ──────────────────────────────────────── -->
+            <div class="about-section">
+                <h3><i class="fas fa-info-circle"></i> Sobre o KANON-Index</h3>
+                <div class="content">
+                    <p>O <strong>KANON-Index</strong> (do grego <em>kanon</em>: cânone, padrão) integra quatro
+                    componentes para avaliar contribuição científica individual:</p>
+                    <p>
+                        <strong>C</strong> = Impacto de citações (normalizado por campo) &bull;
+                        <strong>A</strong> = Contribuição de autoria (penalização de hyperauthorship) &bull;
+                        <strong>S</strong> = Sofisticação metodológica (S = &beta;&middot;S<sub>text</sub> + (1&minus;&beta;)&middot;S<sub>concepts</sub>) &bull;
+                        <strong>J</strong> = Impacto de journal
+                    </p>
+                    <p class="muted" style="font-size:0.85rem;">
+                        Dados: <a href="https://openalex.org" target="_blank" style="color:#fff;">OpenAlex API</a>
+                        (acesso aberto) &bull; Análise: últimos 10 anos &bull; Cache: 7 dias
+                    </p>
+                </div>
+            </div>
+
+        </div><!-- /.panel -->
+    </div>
+</div>
+
+<!-- ── Footer ─────────────────────────────────────────────────────── -->
+<div class="footer">
+    <p style="font-size:0.9rem;">
+        Powered by <a href="https://openalex.org" target="_blank" style="color:#fff; text-decoration:underline;">OpenAlex</a>
+        &bull; KANON-Index &copy; 2026
+        &bull; <a href="../" style="color:#fff; text-decoration:underline;">LGM - IFRJ</a>
+    </p>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════ -->
+<script>
+// ── State ─────────────────────────────────────────────────────────────
+let selectedField = null;
+let searchType = 'name';
+let selectedAuthor = null;
+let lastResult = null;
+let currentWeights = null;
+
+// ── Field Selection ───────────────────────────────────────────────────
+function selectField(field) {
+    selectedField = field;
+    document.querySelectorAll('.field-btn').forEach(b => b.classList.remove('active'));
+    document.querySelector(`[data-field="${field}"]`).classList.add('active');
+
+    // Load default weights for this field
+    fetch(`/api/weights/${field}`)
+        .then(r => r.json())
+        .then(data => {
+            if (data.success) {
+                currentWeights = data.weights;
+                updateWeightInputs(data.weights);
+            }
+        });
+
+    show('step2');
+    show('step3');
+    hide('step4');
+    hide('step5');
+    hide('searchResults');
+    hide('searchError');
+}
+
+// ── Weights ───────────────────────────────────────────────────────────
+function updateWeightInputs(w) {
+    document.getElementById('w_citations').value = w.citations.toFixed(2);
+    document.getElementById('w_authorship').value = w.authorship.toFixed(2);
+    document.getElementById('w_sophistication').value = w.sophistication.toFixed(2);
+    document.getElementById('w_journal').value = w.journal.toFixed(2);
+    updateWeightBars();
+    updateWeightSum();
+}
+
+function toggleCustomWeights() {
+    const custom = document.getElementById('customWeightsToggle').checked;
+    document.querySelectorAll('.weight-input').forEach(inp => {
+        inp.disabled = !custom;
+        if (custom) {
+            inp.addEventListener('input', () => { updateWeightBars(); updateWeightSum(); });
+        }
+    });
+    document.getElementById('resetWeightsBtn').style.display = custom ? 'inline-flex' : 'none';
+}
+
+function resetWeightsDefault() {
+    if (!selectedField || !currentWeights) return;
+    // Re-fetch defaults from server
+    fetch(`/api/weights/${selectedField}`)
+        .then(r => r.json())
+        .then(data => {
+            if (data.success) {
+                currentWeights = data.weights;
+                updateWeightInputs(data.weights);
+            }
+        });
+}
+
+function updateWeightBars() {
+    ['citations','authorship','sophistication','journal'].forEach(k => {
+        const val = parseFloat(document.getElementById(`w_${k}`).value) || 0;
+        const bar = document.getElementById(`bar_${k}`);
+        bar.style.width = (val * 100) + '%';
+    });
+}
+
+function updateWeightSum() {
+    let sum = 0;
+    ['citations','authorship','sophistication','journal'].forEach(k => {
+        sum += parseFloat(document.getElementById(`w_${k}`).value) || 0;
+    });
+    document.getElementById('weightSum').textContent = sum.toFixed(2);
+    const warn = document.getElementById('weightWarning');
+    if (Math.abs(sum - 1.0) > 0.01) {
+        warn.style.display = 'inline';
+    } else {
+        warn.style.display = 'none';
+    }
+}
+
+function getWeights() {
+    if (document.getElementById('customWeightsToggle').checked) {
+        return {
+            citations: parseFloat(document.getElementById('w_citations').value) || 0,
+            authorship: parseFloat(document.getElementById('w_authorship').value) || 0,
+            sophistication: parseFloat(document.getElementById('w_sophistication').value) || 0,
+            journal: parseFloat(document.getElementById('w_journal').value) || 0
+        };
+    }
+    return null; // Use server defaults
+}
+
+// ── Search ────────────────────────────────────────────────────────────
+function setSearchType(type) {
+    searchType = type;
+    document.querySelectorAll('.search-type-btn').forEach(b => b.classList.remove('active'));
+    document.querySelector(`[data-type="${type}"]`).classList.add('active');
+
+    const inp = document.getElementById('searchInput');
+    if (type === 'orcid') {
+        inp.placeholder = '0000-0000-0000-0000';
+        document.getElementById('searchHint').textContent = 'ORCID garante identificação exata do pesquisador';
+    } else {
+        inp.placeholder = 'Digite o nome do pesquisador...';
+        document.getElementById('searchHint').textContent = 'Dica: Use ORCID para identificação exata do pesquisador';
+    }
+}
+
+async function doSearch() {
+    const query = document.getElementById('searchInput').value.trim();
+    if (!query) return;
+
+    const btn = document.getElementById('searchBtn');
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Buscando...';
+    hide('searchResults');
+    hide('searchError');
+    hide('step4');
+    hide('step5');
+
+    try {
+        const resp = await fetch('/api/search', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ type: searchType, query })
+        });
+        const data = await resp.json();
+
+        if (data.success && data.candidates && data.candidates.length > 0) {
+            renderCandidates(data.candidates);
+            show('searchResults');
+        } else {
+            document.getElementById('searchErrorMsg').textContent =
+                data.error || 'Nenhum resultado encontrado';
+            show('searchError');
+        }
+    } catch (err) {
+        document.getElementById('searchErrorMsg').textContent =
+            'Erro de conexão. Verifique sua internet.';
+        show('searchError');
+    } finally {
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fas fa-search"></i> Buscar';
+    }
+}
+
+function renderCandidates(candidates) {
+    const list = document.getElementById('candidatesList');
+    list.innerHTML = '';
+
+    candidates.forEach(c => {
+        const card = document.createElement('div');
+        card.className = 'candidate-card';
+        card.innerHTML = `
+            <div class="cand-info">
+                <div class="cand-name">${esc(c.name)}</div>
+                <div class="cand-inst">
+                    <i class="fas fa-building"></i> ${esc(c.institution)}
+                    ${c.country ? `<span class="cand-country">(${esc(c.country)})</span>` : ''}
+                </div>
+                <div class="cand-meta">
+                    <span><i class="fas fa-file-lines"></i> ${(c.works_count || 0).toLocaleString()} publicações</span>
+                    <span><i class="fas fa-quote-right"></i> ${(c.cited_by_count || 0).toLocaleString()} citações</span>
+                    ${c.orcid ? `<span><i class="fab fa-orcid"></i> ${esc(c.orcid)}</span>` : ''}
+                </div>
+                ${c.topics && c.topics.length ? `<div class="cand-topics">${c.topics.map(t => `<span class="topic-tag">${esc(t)}</span>`).join('')}</div>` : ''}
+            </div>
+            <button class="btn-select">
+                <i class="fas fa-check"></i> Este é o pesquisador
+            </button>
+        `;
+        // Use addEventListener to avoid XSS via inline onclick with user data
+        card.querySelector('.btn-select').addEventListener('click', () => {
+            selectAuthor(c.id, c.name);
+        });
+        list.appendChild(card);
+    });
+}
+
+// ── Calculate ─────────────────────────────────────────────────────────
+function selectAuthor(authorId, authorName) {
+    selectedAuthor = { id: authorId, name: authorName };
+    hide('searchResults');
+    show('step4');
+    startCalculation(authorId);
+}
+
+async function startCalculation(authorId) {
+    // Animate progress bar
+    const bar = document.getElementById('progressBar');
+    const text = document.getElementById('progressText');
+    const pct = document.getElementById('progressPercent');
+
+    let progress = 0;
+    const fakeProgress = setInterval(() => {
+        if (progress < 85) {
+            progress += Math.random() * 8;
+            if (progress > 85) progress = 85;
+            bar.style.width = progress + '%';
+            pct.textContent = Math.round(progress) + '%';
+        }
+        if (progress < 20) text.textContent = 'Conectando à API OpenAlex...';
+        else if (progress < 50) text.textContent = 'Recuperando publicações...';
+        else if (progress < 70) text.textContent = 'Analisando complexidade metodológica...';
+        else text.textContent = 'Calculando KANON-Index...';
+    }, 300);
+
+    try {
+        const resp = await fetch('/api/calculate', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                author_id: authorId,
+                field: selectedField,
+                weights: getWeights()
+            })
+        });
+        const data = await resp.json();
+
+        clearInterval(fakeProgress);
+        bar.style.width = '100%';
+        pct.textContent = '100%';
+        text.textContent = 'Concluído!';
+
+        if (data.success) {
+            lastResult = data.data;
+            setTimeout(() => {
+                hide('step4');
+                displayResults(data.data, data.cached);
+                show('step5');
+            }, 500);
+        } else {
+            text.textContent = 'Erro: ' + (data.error || 'Falha no cálculo');
+            bar.style.background = '#e74c3c';
+        }
+
+    } catch (err) {
+        clearInterval(fakeProgress);
+        text.textContent = 'Erro de conexão';
+        bar.style.background = '#e74c3c';
+    }
+}
+
+function displayResults(d, cached) {
+    document.getElementById('resultName').textContent = d.researcher_name;
+    document.getElementById('resultInst').textContent = d.institution || '';
+    document.getElementById('resultOrcid').textContent = d.orcid ? `ORCID: ${d.orcid}` : '';
+
+    document.getElementById('kanonValue').textContent = d.kanon_index.toFixed(2);
+
+    const fieldNames = { chemistry:'Química', medicine:'Medicina', physics:'Física', economics:'Economia' };
+    document.getElementById('kanonField').textContent =
+        fieldNames[d.field] || d.field || '';
+
+    // Color the badge based on score
+    const badge = document.getElementById('kanonBadge');
+    if (d.kanon_index >= 30) badge.className = 'kanon-badge kanon-high';
+    else if (d.kanon_index >= 15) badge.className = 'kanon-badge kanon-mid';
+    else badge.className = 'kanon-badge kanon-low';
+
+    document.getElementById('mHindex').textContent = d.h_index;
+    document.getElementById('mCitations').textContent = d.total_citations.toLocaleString();
+    document.getElementById('mPapers').textContent = d.total_papers;
+    document.getElementById('mAuthors').textContent = d.avg_authors.toFixed(1);
+    document.getElementById('mFirstAuth').textContent = (d.first_author_fraction * 100).toFixed(0) + '%';
+    document.getElementById('mComplexity').textContent = d.avg_complexity.toFixed(3);
+
+    // Component bars
+    setCompBar('C', d.component_citations);
+    setCompBar('A', d.component_authorship);
+    setCompBar('S', d.component_sophistication);
+    setCompBar('J', d.component_journal);
+
+    document.getElementById('calcTime').textContent = d.calculated_at +
+        (cached ? ' (cache)' : '');
+}
+
+function setCompBar(letter, val) {
+    const el = document.getElementById('comp' + letter);
+    const velEl = document.getElementById('comp' + letter + 'val');
+    el.style.width = (val * 100) + '%';
+    velEl.textContent = val.toFixed(3);
+}
+
+// ── Download ──────────────────────────────────────────────────────────
+function downloadResult() {
+    if (!lastResult) return;
+    const str = JSON.stringify(lastResult, null, 2);
+    const blob = new Blob([str], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `kanon_${lastResult.researcher_name.replace(/\s+/g,'_')}_${Date.now()}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+}
+
+// ── Reset ─────────────────────────────────────────────────────────────
+function resetAll() {
+    selectedField = null;
+    selectedAuthor = null;
+    lastResult = null;
+    searchType = 'name';
+
+    document.querySelectorAll('.field-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('searchInput').value = '';
+    document.getElementById('customWeightsToggle').checked = false;
+    document.querySelectorAll('.weight-input').forEach(i => i.disabled = true);
+
+    hide('step2'); hide('step3'); hide('step4'); hide('step5');
+    hide('searchResults'); hide('searchError');
+
+    // Reset progress bar
+    document.getElementById('progressBar').style.width = '0%';
+    document.getElementById('progressBar').style.background = '';
+    document.getElementById('progressPercent').textContent = '0%';
+
+    setSearchType('name');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ── Utils ─────────────────────────────────────────────────────────────
+function show(id) { document.getElementById(id).style.display = 'block'; }
+function hide(id) { document.getElementById(id).style.display = 'none'; }
+function esc(str) { const d = document.createElement('div'); d.textContent = str || ''; return d.innerHTML; }
+
+</script>
+</body>
+</html>

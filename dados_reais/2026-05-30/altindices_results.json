@@ -1,0 +1,102 @@
+{
+ "n_validated": 419,
+ "n_nobel": 14,
+ "n_elite": 405,
+ "cross_spearman": {
+  "KANON": {
+   "KANON": 1.0,
+   "h": 0.305,
+   "A": 0.719,
+   "h_I": 0.619,
+   "g": 0.447,
+   "h_m": 0.515
+  },
+  "h": {
+   "KANON": 0.305,
+   "h": 1.0,
+   "A": -0.035,
+   "h_I": 0.506,
+   "g": 0.772,
+   "h_m": 0.74
+  },
+  "A": {
+   "KANON": 0.719,
+   "h": -0.035,
+   "A": 1.0,
+   "h_I": 0.66,
+   "g": 0.044,
+   "h_m": 0.424
+  },
+  "h_I": {
+   "KANON": 0.619,
+   "h": 0.506,
+   "A": 0.66,
+   "h_I": 1.0,
+   "g": 0.401,
+   "h_m": 0.874
+  },
+  "g": {
+   "KANON": 0.447,
+   "h": 0.772,
+   "A": 0.044,
+   "h_I": 0.401,
+   "g": 1.0,
+   "h_m": 0.535
+  },
+  "h_m": {
+   "KANON": 0.515,
+   "h": 0.74,
+   "A": 0.424,
+   "h_I": 0.874,
+   "g": 0.535,
+   "h_m": 1.0
+  }
+ },
+ "hyperauth_sensitivity_pooled": {
+  "KANON": -0.584,
+  "h": 0.071,
+  "A": -0.887,
+  "h_I": -0.708,
+  "g": 0.055,
+  "h_m": -0.45
+ },
+ "hyperauth_sensitivity_perfield": {
+  "Medicine": {
+   "n": 112,
+   "KANON": -0.826,
+   "h": -0.26,
+   "A": -0.926,
+   "h_I": -0.605,
+   "g": -0.153,
+   "h_m": -0.473
+  },
+  "Physics": {
+   "n": 111,
+   "KANON": -0.58,
+   "h": 0.113,
+   "A": -0.954,
+   "h_I": -0.769,
+   "g": -0.07,
+   "h_m": -0.508
+  },
+  "Chemistry": {
+   "n": 88,
+   "KANON": -0.867,
+   "h": 0.154,
+   "A": -0.952,
+   "h_I": -0.571,
+   "g": 0.341,
+   "h_m": -0.351
+  },
+  "Economics": {
+   "n": 108,
+   "KANON": -0.503,
+   "h": 0.423,
+   "A": -0.988,
+   "h_I": -0.712,
+   "g": 0.215,
+   "h_m": -0.209
+  }
+ },
+ "note": "ORCID-validated subset only: cache profiles with data_quality==ok, n_works>0 and |h_recomp-h_csv|<=3. KANON and A use the FIELD-RELATIVE canonical components (regenerated 2026-05-31 to match the field-relative migration; g/h_I/h_m/h are definition-independent and unchanged). 150/164 laureates have ORCIDs unlinked in OpenAlex, so laureate-vs-elite AUC for g/h_I/h_m is NOT computable here and is deferred to a host run with canonical OpenAlex author IDs. Cross-index and hyperauthorship-sensitivity correlations are within-author relationships."
+}
